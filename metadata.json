@@ -1,0 +1,6 @@
+{
+  "name": "IEC Hub - AKTU Syllabus Copilot",
+  "description": "Comprehensive AKTU syllabus explorer, study planner, campus resources, and AI study copilot for IEC College of Engineering & Technology (Greater Noida), created by Viplov (2nd Year).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
