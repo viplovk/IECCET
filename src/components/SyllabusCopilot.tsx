@@ -398,26 +398,26 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
   return (
     <div className="space-y-6">
       {/* Top Banner */}
-      <div className="bg-white border border-[#E2E2E2] rounded-sm p-4 sm:p-6 shadow-sm">
+      <div className="bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-4 sm:p-6 shadow-sm transition-colors">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-black text-white text-[10px] uppercase font-bold tracking-widest font-mono mb-2">
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-black dark:bg-[#282C38] text-white text-[10px] uppercase font-bold tracking-widest font-mono mb-2">
               <Sparkles className="w-3 h-3 text-amber-300" />
               <span>Campus & Syllabus Copilot</span>
             </div>
-            <h2 className="font-serif text-2xl sm:text-3xl font-black text-[#1A1A1A] tracking-tight uppercase">
+            <h2 className="font-serif text-2xl sm:text-3xl font-black text-[#1A1A1A] dark:text-[#F3F4F6] tracking-tight uppercase">
               Intelligent Academic Assistant
             </h2>
-            <p className="text-xs sm:text-sm text-gray-500 font-serif italic mt-0.5">
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-serif italic mt-0.5">
               Navigate course curriculums, master complex syllabus topics, extract practical summaries from uploaded lecture notes, and crack university exams.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-[10px] px-3 py-1 bg-[#F5F5F5] border-l-4 border-[#8B0000] border-y border-r border-[#E2E2E2] text-gray-800 font-bold uppercase tracking-wider">
+            <span className="text-[10px] px-3 py-1 bg-[#F5F5F5] dark:bg-[#20242F] border-l-4 border-[#8B0000] dark:border-[#EF4444] border-y border-r border-[#E2E2E2] dark:border-[#2D323F] text-gray-800 dark:text-gray-200 font-bold uppercase tracking-wider">
               IEC-CET Official Code: 090
             </span>
-            <span className="text-[10px] px-2.5 py-1 bg-[#FAF9F6] border border-[#E2E2E2] text-gray-600 font-mono">
+            <span className="text-[10px] px-2.5 py-1 bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] text-gray-600 dark:text-gray-400 font-mono">
               Lead Architect: Viplov (2nd Year)
             </span>
           </div>
@@ -427,20 +427,20 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
       {/* Course & Uploaded Material Context Bar */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Course / Subject Selector */}
-        <div className="lg:col-span-6 bg-white border border-[#E2E2E2] rounded-sm p-4 shadow-sm space-y-3">
-          <div className="flex items-center justify-between border-b border-black pb-2">
-            <span className="font-serif text-xs font-bold uppercase tracking-wider text-[#1A1A1A] flex items-center gap-1.5">
-              <BookOpen className="w-3.5 h-3.5 text-[#8B0000]" />
+        <div className="lg:col-span-6 bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-4 shadow-sm space-y-3 transition-colors">
+          <div className="flex items-center justify-between border-b border-black dark:border-white/20 pb-2">
+            <span className="font-serif text-xs font-bold uppercase tracking-wider text-[#1A1A1A] dark:text-[#F3F4F6] flex items-center gap-1.5">
+              <BookOpen className="w-3.5 h-3.5 text-[#8B0000] dark:text-[#EF4444]" />
               Active Academic Subject
             </span>
-            <span className="font-mono text-[10px] font-bold text-[#8B0000]">
+            <span className="font-mono text-[10px] font-bold text-[#8B0000] dark:text-[#EF4444]">
               {selectedSubject.code}
             </span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div>
-              <label className="block text-[9px] uppercase font-bold tracking-widest text-gray-500 mb-1">
+              <label className="block text-[9px] uppercase font-bold tracking-widest text-gray-500 dark:text-gray-400 mb-1">
                 Subject
               </label>
               <select
@@ -449,10 +449,10 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
                   const s = AKTU_SUBJECTS.find((sub) => sub.id === e.target.value);
                   if (s) setSelectedSubject(s);
                 }}
-                className="w-full px-2.5 py-1.5 rounded-sm bg-[#FAF9F6] border border-[#E2E2E2] text-[#1A1A1A] text-xs font-serif font-bold focus:outline-none focus:border-black cursor-pointer"
+                className="w-full px-2.5 py-1.5 rounded-sm bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] text-[#1A1A1A] dark:text-[#F3F4F6] text-xs font-serif font-bold focus:outline-none focus:border-black dark:focus:border-white cursor-pointer"
               >
                 {AKTU_SUBJECTS.map((sub) => (
-                  <option key={sub.id} value={sub.id}>
+                  <option key={sub.id} value={sub.id} className="dark:bg-[#181A20]">
                     {sub.code} - {sub.name} (Yr {sub.year})
                   </option>
                 ))}
@@ -460,7 +460,7 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
             </div>
 
             <div>
-              <label className="block text-[9px] uppercase font-bold tracking-widest text-gray-500 mb-1">
+              <label className="block text-[9px] uppercase font-bold tracking-widest text-gray-500 dark:text-gray-400 mb-1">
                 Target Unit
               </label>
               <select
@@ -469,11 +469,11 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
                   const val = e.target.value;
                   setSelectedUnitNum(val === 'ALL' ? 'ALL' : Number(val));
                 }}
-                className="w-full px-2.5 py-1.5 rounded-sm bg-[#FAF9F6] border border-[#E2E2E2] text-[#1A1A1A] text-xs font-semibold focus:outline-none focus:border-black cursor-pointer"
+                className="w-full px-2.5 py-1.5 rounded-sm bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] text-[#1A1A1A] dark:text-[#F3F4F6] text-xs font-semibold focus:outline-none focus:border-black dark:focus:border-white cursor-pointer"
               >
-                <option value="ALL">All 5 Units (Comprehensive)</option>
+                <option value="ALL" className="dark:bg-[#181A20]">All 5 Units (Comprehensive)</option>
                 {selectedSubject.units.map((u) => (
-                  <option key={u.unitNumber} value={u.unitNumber}>
+                  <option key={u.unitNumber} value={u.unitNumber} className="dark:bg-[#181A20]">
                     Unit {u.unitNumber}: {u.unitTitle}
                   </option>
                 ))}
@@ -483,10 +483,10 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
         </div>
 
         {/* Upload Lecture Materials / Course Notes */}
-        <div className="lg:col-span-6 bg-white border border-[#E2E2E2] rounded-sm p-4 shadow-sm space-y-3">
-          <div className="flex items-center justify-between border-b border-black pb-2">
-            <span className="font-serif text-xs font-bold uppercase tracking-wider text-[#1A1A1A] flex items-center gap-1.5">
-              <Upload className="w-3.5 h-3.5 text-[#8B0000]" />
+        <div className="lg:col-span-6 bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-4 shadow-sm space-y-3 transition-colors">
+          <div className="flex items-center justify-between border-b border-black dark:border-white/20 pb-2">
+            <span className="font-serif text-xs font-bold uppercase tracking-wider text-[#1A1A1A] dark:text-[#F3F4F6] flex items-center gap-1.5">
+              <Upload className="w-3.5 h-3.5 text-[#8B0000] dark:text-[#EF4444]" />
               Course Material Grounding (PDF, Slides, Notes)
             </span>
             <input
@@ -499,7 +499,7 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
             />
             <label
               htmlFor="material-upload"
-              className="cursor-pointer text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-black hover:bg-gray-800 text-white rounded-sm transition-colors inline-flex items-center gap-1"
+              className="cursor-pointer text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-black dark:bg-[#282C38] hover:bg-gray-800 dark:hover:bg-gray-700 text-white rounded-sm transition-colors inline-flex items-center gap-1"
             >
               <Paperclip className="w-2.5 h-2.5" />
               <span>Upload Document</span>
@@ -507,21 +507,21 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
           </div>
 
           {uploadedMaterial ? (
-            <div className="p-2.5 bg-[#FAF9F6] border border-emerald-300 rounded-sm flex items-center justify-between gap-2">
+            <div className="p-2.5 bg-[#FAF9F6] dark:bg-[#12141A] border border-emerald-300 dark:border-emerald-700 rounded-sm flex items-center justify-between gap-2">
               <div className="flex items-center gap-2 overflow-hidden">
-                <FileCheck className="w-4 h-4 text-emerald-700 flex-shrink-0" />
+                <FileCheck className="w-4 h-4 text-emerald-700 dark:text-emerald-400 flex-shrink-0" />
                 <div className="truncate">
-                  <span className="block font-bold text-xs text-[#1A1A1A] truncate font-mono">
+                  <span className="block font-bold text-xs text-[#1A1A1A] dark:text-[#F3F4F6] truncate font-mono">
                     {uploadedMaterial.name}
                   </span>
-                  <span className="text-[10px] text-gray-500">
+                  <span className="text-[10px] text-gray-500 dark:text-gray-400">
                     Active Grounding Active • {(uploadedMaterial.size / 1024).toFixed(1)} KB
                   </span>
                 </div>
               </div>
               <button
                 onClick={handleClearMaterial}
-                className="p-1 rounded text-gray-400 hover:text-[#8B0000] hover:bg-gray-200 transition-colors"
+                className="p-1 rounded text-gray-400 hover:text-[#8B0000] dark:hover:text-[#EF4444] hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
                 title="Remove attached document"
               >
                 <X className="w-3.5 h-3.5" />
@@ -529,16 +529,16 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
             </div>
           ) : (
             <div className="space-y-2">
-              <div className="text-[11px] text-gray-500 font-serif italic flex items-center justify-between">
+              <div className="text-[11px] text-gray-500 dark:text-gray-400 font-serif italic flex items-center justify-between">
                 <span>Upload lecture notes/PDF or load a curated sample:</span>
-                {isUploading && <span className="text-[#8B0000] font-mono text-[10px]">Processing file...</span>}
+                {isUploading && <span className="text-[#8B0000] dark:text-[#EF4444] font-mono text-[10px]">Processing file...</span>}
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {SAMPLE_COURSE_MATERIALS.map((sample, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleSelectSampleMaterial(sample)}
-                    className="text-[10px] px-2 py-1 bg-[#FAF9F6] hover:bg-gray-100 border border-[#E2E2E2] rounded-sm text-gray-800 font-mono font-medium transition-colors text-left truncate max-w-[200px]"
+                    className="text-[10px] px-2 py-1 bg-[#FAF9F6] dark:bg-[#12141A] hover:bg-gray-100 dark:hover:bg-[#20242F] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm text-gray-800 dark:text-gray-200 font-mono font-medium transition-colors text-left truncate max-w-[200px] cursor-pointer"
                     title={sample.summary}
                   >
                     📄 {sample.name.split('_')[0]}_{sample.name.split('_')[1]}
@@ -551,15 +551,15 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
       </div>
 
       {/* Mode Selector & Quick Slash Commands */}
-      <div className="bg-white border border-[#E2E2E2] rounded-sm p-4 shadow-sm space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E2E2E2] pb-3">
+      <div className="bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-4 shadow-sm space-y-4 transition-colors">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E2E2E2] dark:border-[#2D323F] pb-3">
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setActiveCommand('summarize')}
               className={`px-3 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeCommand === 'summarize'
-                  ? 'bg-[#8B0000] text-white shadow-sm'
-                  : 'bg-[#FAF9F6] text-gray-700 hover:text-black border border-[#E2E2E2]'
+                  ? 'bg-[#8B0000] dark:bg-[#EF4444] text-white shadow-sm'
+                  : 'bg-[#FAF9F6] dark:bg-[#12141A] text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white border border-[#E2E2E2] dark:border-[#2D323F]'
               }`}
             >
               <FileText className="w-3.5 h-3.5" />
@@ -570,8 +570,8 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
               onClick={() => setActiveCommand('quiz')}
               className={`px-3 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeCommand === 'quiz'
-                  ? 'bg-[#8B0000] text-white shadow-sm'
-                  : 'bg-[#FAF9F6] text-gray-700 hover:text-black border border-[#E2E2E2]'
+                  ? 'bg-[#8B0000] dark:bg-[#EF4444] text-white shadow-sm'
+                  : 'bg-[#FAF9F6] dark:bg-[#12141A] text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white border border-[#E2E2E2] dark:border-[#2D323F]'
               }`}
             >
               <HelpCircle className="w-3.5 h-3.5" />
@@ -582,8 +582,8 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
               onClick={() => setActiveCommand('studyplan')}
               className={`px-3 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeCommand === 'studyplan'
-                  ? 'bg-[#8B0000] text-white shadow-sm'
-                  : 'bg-[#FAF9F6] text-gray-700 hover:text-black border border-[#E2E2E2]'
+                  ? 'bg-[#8B0000] dark:bg-[#EF4444] text-white shadow-sm'
+                  : 'bg-[#FAF9F6] dark:bg-[#12141A] text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white border border-[#E2E2E2] dark:border-[#2D323F]'
               }`}
             >
               <Calendar className="w-3.5 h-3.5" />
@@ -594,8 +594,8 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
               onClick={() => setActiveCommand('explain')}
               className={`px-3 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeCommand === 'explain'
-                  ? 'bg-[#8B0000] text-white shadow-sm'
-                  : 'bg-[#FAF9F6] text-gray-700 hover:text-black border border-[#E2E2E2]'
+                  ? 'bg-[#8B0000] dark:bg-[#EF4444] text-white shadow-sm'
+                  : 'bg-[#FAF9F6] dark:bg-[#12141A] text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white border border-[#E2E2E2] dark:border-[#2D323F]'
               }`}
             >
               <Lightbulb className="w-3.5 h-3.5" />
@@ -606,8 +606,8 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
               onClick={() => setActiveCommand('chat')}
               className={`px-3 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeCommand === 'chat'
-                  ? 'bg-black text-white shadow-sm'
-                  : 'bg-[#FAF9F6] text-gray-700 hover:text-black border border-[#E2E2E2]'
+                  ? 'bg-black dark:bg-[#282C38] text-white shadow-sm'
+                  : 'bg-[#FAF9F6] dark:bg-[#12141A] text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white border border-[#E2E2E2] dark:border-[#2D323F]'
               }`}
             >
               <MessageSquare className="w-3.5 h-3.5" />
@@ -616,7 +616,7 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
           </div>
 
           {uploadedMaterial && (
-            <div className="flex items-center gap-1.5 text-xs text-emerald-800 font-mono bg-emerald-50 border border-emerald-300 px-2 py-0.5 rounded-sm">
+            <div className="flex items-center gap-1.5 text-xs text-emerald-800 dark:text-emerald-300 font-mono bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-700 px-2 py-0.5 rounded-sm">
               <Check className="w-3 h-3" />
               <span>Grounded in: {uploadedMaterial.name}</span>
             </div>
@@ -643,12 +643,12 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') executeCommand(activeCommand);
                 }}
-                className="flex-1 px-3 py-2 rounded-sm bg-[#FAF9F6] border border-[#E2E2E2] text-[#1A1A1A] font-serif text-sm focus:outline-none focus:border-black"
+                className="flex-1 px-3 py-2 rounded-sm bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] text-[#1A1A1A] dark:text-[#F3F4F6] font-serif text-sm focus:outline-none focus:border-black dark:focus:border-white"
               />
               <button
                 onClick={() => executeCommand(activeCommand)}
                 disabled={isLoading}
-                className="px-5 py-2 rounded-sm bg-black hover:bg-gray-800 disabled:opacity-50 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                className="px-5 py-2 rounded-sm bg-black dark:bg-[#282C38] hover:bg-gray-800 dark:hover:bg-gray-700 disabled:opacity-50 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 {isLoading ? (
                   <>
@@ -666,7 +666,7 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
 
             {/* Quick Topic Chips from Subject */}
             <div className="flex flex-wrap items-center gap-1.5 text-xs">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 font-mono">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 font-mono">
                 Suggested Topics:
               </span>
               {selectedSubject.units
@@ -680,7 +680,7 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
                       setPromptInput(topic);
                       executeCommand(activeCommand, topic);
                     }}
-                    className="px-2 py-0.5 rounded-sm bg-[#FAF9F6] hover:bg-gray-200 text-[#8B0000] border border-[#E2E2E2] text-[10px] font-serif transition-colors cursor-pointer"
+                    className="px-2 py-0.5 rounded-sm bg-[#FAF9F6] dark:bg-[#12141A] hover:bg-gray-200 dark:hover:bg-[#20242F] text-[#8B0000] dark:text-[#EF4444] border border-[#E2E2E2] dark:border-[#2D323F] text-[10px] font-serif transition-colors cursor-pointer"
                   >
                     • {topic}
                   </button>
@@ -689,16 +689,16 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
 
             {/* Output Display Card */}
             {isLoading && (
-              <div className="p-8 text-center bg-[#FAF9F6] border border-[#E2E2E2] rounded-sm space-y-3">
-                <RefreshCw className="w-6 h-6 animate-spin text-[#8B0000] mx-auto" />
-                <p className="font-serif italic text-sm text-gray-600">
-                  Campus & Syllabus Copilot is synthesizing grounded response for <span className="font-bold text-black">{selectedSubject.code}</span>...
+              <div className="p-8 text-center bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm space-y-3">
+                <RefreshCw className="w-6 h-6 animate-spin text-[#8B0000] dark:text-[#EF4444] mx-auto" />
+                <p className="font-serif italic text-sm text-gray-600 dark:text-gray-300">
+                  Campus & Syllabus Copilot is synthesizing grounded response for <span className="font-bold text-black dark:text-white">{selectedSubject.code}</span>...
                 </p>
               </div>
             )}
 
             {errorMsg && (
-              <div className="p-4 bg-rose-50 border border-rose-300 rounded-sm text-rose-800 text-xs flex items-start gap-2">
+              <div className="p-4 bg-rose-50 dark:bg-rose-950/40 border border-rose-300 dark:border-rose-800 rounded-sm text-rose-800 dark:text-rose-200 text-xs flex items-start gap-2">
                 <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
                 <div>
                   <strong className="block font-bold">Execution Notice:</strong>
@@ -708,14 +708,14 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
             )}
 
             {structuredOutput && !isLoading && (
-              <div className="p-5 sm:p-6 bg-white border border-[#E2E2E2] rounded-sm shadow-sm space-y-4">
-                <div className="flex items-center justify-between border-b border-black pb-2">
+              <div className="p-5 sm:p-6 bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm shadow-sm space-y-4">
+                <div className="flex items-center justify-between border-b border-black dark:border-white/20 pb-2">
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 bg-black text-white">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 bg-black dark:bg-[#282C38] text-white">
                       /{activeCommand} Output
                     </span>
                     {isGroundedInDoc && (
-                      <span className="font-mono text-[10px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-300 px-2 py-0.5">
+                      <span className="font-mono text-[10px] font-bold text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-700 px-2 py-0.5">
                         🔒 Grounded in Course Material
                       </span>
                     )}
@@ -723,40 +723,40 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
 
                   <button
                     onClick={handleCopy}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-sm bg-[#FAF9F6] hover:bg-gray-100 text-xs font-mono border border-[#E2E2E2] transition-colors cursor-pointer text-gray-700"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-sm bg-[#FAF9F6] dark:bg-[#12141A] hover:bg-gray-100 dark:hover:bg-[#20242F] text-xs font-mono border border-[#E2E2E2] dark:border-[#2D323F] transition-colors cursor-pointer text-gray-700 dark:text-gray-300"
                   >
                     {copied ? (
                       <>
-                        <Check className="w-3 h-3 text-emerald-700" />
+                        <Check className="w-3 h-3 text-emerald-700 dark:text-emerald-400" />
                         <span>Copied!</span>
                       </>
                     ) : (
                       <>
-                        <Copy className="w-3 h-3 text-gray-500" />
+                        <Copy className="w-3 h-3 text-gray-500 dark:text-gray-400" />
                         <span>Copy Markdown</span>
                       </>
                     )}
                   </button>
                 </div>
 
-                <div className="prose prose-sm max-w-none text-[#1A1A1A] font-serif leading-relaxed space-y-3">
+                <div className="prose dark:prose-invert prose-sm max-w-none text-[#1A1A1A] dark:text-[#F3F4F6] font-serif leading-relaxed space-y-3">
                   <ReactMarkdown>{structuredOutput}</ReactMarkdown>
                 </div>
 
-                <div className="pt-3 border-t border-[#E2E2E2] flex flex-wrap items-center justify-between gap-2">
-                  <span className="text-[10px] font-mono text-gray-500">
+                <div className="pt-3 border-t border-[#E2E2E2] dark:border-[#2D323F] flex flex-wrap items-center justify-between gap-2">
+                  <span className="text-[10px] font-mono text-gray-500 dark:text-gray-400">
                     Generated by Campus & Syllabus Copilot • IEC-CET Academic Engine
                   </span>
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => executeCommand('quiz', promptInput)}
-                      className="text-[10px] px-2.5 py-1 bg-[#FAF9F6] hover:bg-gray-100 border border-[#E2E2E2] text-[#8B0000] font-bold uppercase tracking-wider rounded-sm cursor-pointer"
+                      className="text-[10px] px-2.5 py-1 bg-[#FAF9F6] dark:bg-[#12141A] hover:bg-gray-100 dark:hover:bg-[#20242F] border border-[#E2E2E2] dark:border-[#2D323F] text-[#8B0000] dark:text-[#EF4444] font-bold uppercase tracking-wider rounded-sm cursor-pointer"
                     >
                       Take Quiz on this Topic
                     </button>
                     <button
                       onClick={() => executeCommand('studyplan', promptInput)}
-                      className="text-[10px] px-2.5 py-1 bg-[#FAF9F6] hover:bg-gray-100 border border-[#E2E2E2] text-gray-800 font-bold uppercase tracking-wider rounded-sm cursor-pointer"
+                      className="text-[10px] px-2.5 py-1 bg-[#FAF9F6] dark:bg-[#12141A] hover:bg-gray-100 dark:hover:bg-[#20242F] border border-[#E2E2E2] dark:border-[#2D323F] text-gray-800 dark:text-gray-200 font-bold uppercase tracking-wider rounded-sm cursor-pointer"
                     >
                       Make Revision Plan
                     </button>
@@ -768,7 +768,7 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
         ) : (
           /* Freeform Conversational Mode */
           <div className="space-y-4">
-            <div className="h-[420px] overflow-y-auto p-4 bg-[#FAF9F6] border border-[#E2E2E2] rounded-sm space-y-3">
+            <div className="h-[420px] overflow-y-auto p-4 bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm space-y-3">
               {chatMessages.map((msg) => (
                 <div
                   key={msg.id}
@@ -779,8 +779,8 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
                   <div
                     className={`max-w-[85%] rounded-sm p-4 text-xs ${
                       msg.role === 'user'
-                        ? 'bg-black text-white shadow-sm'
-                        : 'bg-white border border-[#E2E2E2] text-[#1A1A1A] shadow-sm'
+                        ? 'bg-black dark:bg-[#282C38] text-white shadow-sm'
+                        : 'bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] text-[#1A1A1A] dark:text-[#F3F4F6] shadow-sm'
                     }`}
                   >
                     {msg.attachedMaterialName && (
@@ -789,18 +789,18 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
                         <span>Attached: {msg.attachedMaterialName}</span>
                       </div>
                     )}
-                    <div className="prose prose-sm max-w-none font-serif leading-relaxed">
+                    <div className="prose dark:prose-invert prose-sm max-w-none font-serif leading-relaxed">
                       <ReactMarkdown>{msg.content}</ReactMarkdown>
                     </div>
                   </div>
-                  <span className="text-[9px] text-gray-400 font-mono mt-1 px-1">
+                  <span className="text-[9px] text-gray-400 dark:text-gray-500 font-mono mt-1 px-1">
                     {msg.role === 'user' ? 'You' : 'Campus Copilot'} • {msg.timestamp}
                   </span>
                 </div>
               ))}
               {isLoading && (
-                <div className="flex items-center gap-2 p-3 bg-white border border-[#E2E2E2] rounded-sm text-xs font-serif italic text-gray-600">
-                  <RefreshCw className="w-3.5 h-3.5 animate-spin text-[#8B0000]" />
+                <div className="flex items-center gap-2 p-3 bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm text-xs font-serif italic text-gray-600 dark:text-gray-300">
+                  <RefreshCw className="w-3.5 h-3.5 animate-spin text-[#8B0000] dark:text-[#EF4444]" />
                   <span>Copilot is formulating grounded academic answer...</span>
                 </div>
               )}
@@ -810,8 +810,8 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
             {/* Chat Input & Slash Hints */}
             <div className="relative">
               {showSlashHints && filteredSlash.length > 0 && (
-                <div className="absolute bottom-full mb-1 left-0 w-full sm:w-96 bg-white border border-black shadow-lg rounded-sm p-1.5 z-20 space-y-1">
-                  <div className="text-[9px] uppercase tracking-widest font-bold text-gray-500 px-2 py-0.5 border-b border-[#E2E2E2]">
+                <div className="absolute bottom-full mb-1 left-0 w-full sm:w-96 bg-white dark:bg-[#181A20] border border-black dark:border-[#2D323F] shadow-lg rounded-sm p-1.5 z-20 space-y-1">
+                  <div className="text-[9px] uppercase tracking-widest font-bold text-gray-500 dark:text-gray-400 px-2 py-0.5 border-b border-[#E2E2E2] dark:border-[#2D323F]">
                     Available Slash Commands
                   </div>
                   {filteredSlash.map((item, idx) => (
@@ -821,10 +821,10 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
                         setChatInput(`${item.cmd} `);
                         setShowSlashHints(false);
                       }}
-                      className="w-full text-left px-2 py-1.5 hover:bg-[#FAF9F6] rounded-sm text-xs transition-colors cursor-pointer flex flex-col"
+                      className="w-full text-left px-2 py-1.5 hover:bg-[#FAF9F6] dark:hover:bg-[#20242F] rounded-sm text-xs transition-colors cursor-pointer flex flex-col"
                     >
-                      <span className="font-mono font-bold text-[#8B0000]">{item.cmd}</span>
-                      <span className="text-[10px] text-gray-500 font-serif">{item.desc}</span>
+                      <span className="font-mono font-bold text-[#8B0000] dark:text-[#EF4444]">{item.cmd}</span>
+                      <span className="text-[10px] text-gray-500 dark:text-gray-400 font-serif">{item.desc}</span>
                     </button>
                   ))}
                 </div>
@@ -839,12 +839,12 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') handleSendChat();
                   }}
-                  className="flex-1 px-3 py-2.5 rounded-sm bg-[#FAF9F6] border border-[#E2E2E2] text-[#1A1A1A] font-serif text-xs focus:outline-none focus:border-black"
+                  className="flex-1 px-3 py-2.5 rounded-sm bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] text-[#1A1A1A] dark:text-[#F3F4F6] font-serif text-xs focus:outline-none focus:border-black dark:focus:border-white"
                 />
                 <button
                   onClick={() => handleSendChat()}
                   disabled={isLoading || !chatInput.trim()}
-                  className="px-5 py-2.5 rounded-sm bg-black hover:bg-gray-800 disabled:opacity-40 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
+                  className="px-5 py-2.5 rounded-sm bg-black dark:bg-[#282C38] hover:bg-gray-800 dark:hover:bg-gray-700 disabled:opacity-40 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Send</span>
@@ -856,42 +856,42 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
       </div>
 
       {/* Operating Rules & Command Cheat Sheet */}
-      <div className="bg-white border border-[#E2E2E2] rounded-sm p-4 sm:p-5 shadow-sm space-y-3">
-        <div className="flex items-center justify-between border-b border-black pb-2">
-          <span className="font-serif text-sm font-bold text-[#1A1A1A] flex items-center gap-2">
-            <Terminal className="w-4 h-4 text-[#8B0000]" />
+      <div className="bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-4 sm:p-5 shadow-sm space-y-3 transition-colors">
+        <div className="flex items-center justify-between border-b border-black dark:border-white/20 pb-2">
+          <span className="font-serif text-sm font-bold text-[#1A1A1A] dark:text-[#F3F4F6] flex items-center gap-2">
+            <Terminal className="w-4 h-4 text-[#8B0000] dark:text-[#EF4444]" />
             <span>Campus & Syllabus Copilot Operating Guide</span>
           </span>
-          <span className="text-[10px] font-mono text-gray-500 uppercase tracking-widest">
+          <span className="text-[10px] font-mono text-gray-500 dark:text-gray-400 uppercase tracking-widest">
             Rules of Engagement
           </span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
-          <div className="p-3 bg-[#FAF9F6] border border-[#E2E2E2] rounded-sm space-y-1">
-            <span className="font-mono font-bold text-[#8B0000] text-[11px] block">/summarize</span>
-            <p className="text-gray-600 font-serif">
+          <div className="p-3 bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm space-y-1">
+            <span className="font-mono font-bold text-[#8B0000] dark:text-[#EF4444] text-[11px] block">/summarize</span>
+            <p className="text-gray-600 dark:text-gray-400 font-serif">
               High-yield summary focusing on core concepts, formulas, definitions, and high-impact takeaways.
             </p>
           </div>
 
-          <div className="p-3 bg-[#FAF9F6] border border-[#E2E2E2] rounded-sm space-y-1">
-            <span className="font-mono font-bold text-[#8B0000] text-[11px] block">/quiz</span>
-            <p className="text-gray-600 font-serif">
+          <div className="p-3 bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm space-y-1">
+            <span className="font-mono font-bold text-[#8B0000] dark:text-[#EF4444] text-[11px] block">/quiz</span>
+            <p className="text-gray-600 dark:text-gray-400 font-serif">
               5 targeted practice questions (conceptual MCQs + short answers) with comprehensive keys and explanations.
             </p>
           </div>
 
-          <div className="p-3 bg-[#FAF9F6] border border-[#E2E2E2] rounded-sm space-y-1">
-            <span className="font-mono font-bold text-[#8B0000] text-[11px] block">/studyplan</span>
-            <p className="text-gray-600 font-serif">
+          <div className="p-3 bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm space-y-1">
+            <span className="font-mono font-bold text-[#8B0000] dark:text-[#EF4444] text-[11px] block">/studyplan</span>
+            <p className="text-gray-600 dark:text-gray-400 font-serif">
               Realistic, week-by-week or day-by-day revision schedule with active recall checkpoints.
             </p>
           </div>
 
-          <div className="p-3 bg-[#FAF9F6] border border-[#E2E2E2] rounded-sm space-y-1">
-            <span className="font-mono font-bold text-[#8B0000] text-[11px] block">/explain [concept]</span>
-            <p className="text-gray-600 font-serif">
+          <div className="p-3 bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm space-y-1">
+            <span className="font-mono font-bold text-[#8B0000] dark:text-[#EF4444] text-[11px] block">/explain [concept]</span>
+            <p className="text-gray-600 dark:text-gray-400 font-serif">
               Deconstructs complex terms using relatable analogies, real-world examples, and step-by-step logic.
             </p>
           </div>

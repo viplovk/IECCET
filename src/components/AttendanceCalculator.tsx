@@ -108,31 +108,31 @@ export const AttendanceCalculator: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Banner */}
-      <div className="bg-white border border-[#E2E2E2] rounded-sm p-4 sm:p-6 shadow-sm">
+      <div className="bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-4 sm:p-6 shadow-sm transition-colors">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-black text-white text-[10px] uppercase font-bold tracking-widest font-mono mb-1.5">
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-black dark:bg-[#282C38] text-white text-[10px] uppercase font-bold tracking-widest font-mono mb-1.5">
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>AKTU Mandatory 75% Attendance Compliance Rule</span>
             </div>
-            <h2 className="font-serif text-2xl sm:text-3xl font-black text-[#1A1A1A] tracking-tight uppercase">
+            <h2 className="font-serif text-2xl sm:text-3xl font-black text-[#1A1A1A] dark:text-[#F3F4F6] tracking-tight uppercase">
               75% Attendance Guard & Bunk Margin Planner
             </h2>
-            <p className="text-xs sm:text-sm text-gray-500 font-serif italic mt-0.5">
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-serif italic mt-0.5">
               Never get debarred from AKTU End-Semesters or IEC-CET sessionals. Track exact classes you can safely skip or must attend.
             </p>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500">Target:</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Target:</span>
             {[75, 80, 85].map(t => (
               <button
                 key={t}
                 onClick={() => setTargetPercentage(t)}
                 className={`px-3 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                   targetPercentage === t
-                    ? 'bg-[#8B0000] text-white shadow-sm'
-                    : 'bg-[#F5F5F5] text-gray-700 hover:text-black border border-[#E2E2E2]'
+                    ? 'bg-[#8B0000] dark:bg-[#EF4444] text-white shadow-sm'
+                    : 'bg-[#F5F5F5] dark:bg-[#12141A] text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white border border-[#E2E2E2] dark:border-[#2D323F]'
                 }`}
               >
                 {t}% {t === 75 && '(Minimum)'}
@@ -144,29 +144,29 @@ export const AttendanceCalculator: React.FC = () => {
 
       {/* Overall Score Summary */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="p-5 rounded-sm bg-white border border-[#E2E2E2] space-y-1 shadow-sm">
-          <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Overall Attendance</span>
+        <div className="p-5 rounded-sm bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] space-y-1 shadow-sm transition-colors">
+          <span className="text-[10px] text-gray-500 dark:text-gray-400 font-bold uppercase tracking-widest">Overall Attendance</span>
           <div className="flex items-baseline gap-2">
-            <span className={`font-serif text-4xl font-black ${overallPercentage >= targetPercentage ? 'text-emerald-700' : 'text-[#8B0000]'}`}>
+            <span className={`font-serif text-4xl font-black ${overallPercentage >= targetPercentage ? 'text-emerald-700 dark:text-emerald-400' : 'text-[#8B0000] dark:text-[#EF4444]'}`}>
               {overallPercentage.toFixed(1)}%
             </span>
-            <span className="text-xs text-gray-500 font-mono">({totalAttended}/{totalConducted} classes)</span>
+            <span className="text-xs text-gray-500 dark:text-gray-400 font-mono">({totalAttended}/{totalConducted} classes)</span>
           </div>
-          <div className="w-full h-2 bg-[#FAF9F6] border border-[#E2E2E2] rounded-none mt-2 overflow-hidden">
+          <div className="w-full h-2 bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] rounded-none mt-2 overflow-hidden">
             <div 
-              className={`h-full transition-all duration-300 ${overallPercentage >= targetPercentage ? 'bg-emerald-600' : 'bg-[#8B0000]'}`}
+              className={`h-full transition-all duration-300 ${overallPercentage >= targetPercentage ? 'bg-emerald-600 dark:bg-emerald-500' : 'bg-[#8B0000] dark:bg-[#EF4444]'}`}
               style={{ width: `${Math.min(100, overallPercentage)}%` }}
             />
           </div>
         </div>
 
-        <div className={`p-5 rounded-sm border md:col-span-2 flex items-center gap-4 shadow-sm ${
+        <div className={`p-5 rounded-sm border md:col-span-2 flex items-center gap-4 shadow-sm transition-colors ${
           overallPercentage >= targetPercentage 
-            ? 'bg-white border-l-4 border-emerald-600 border-y border-r border-[#E2E2E2]' 
-            : 'bg-white border-l-4 border-[#8B0000] border-y border-r border-[#E2E2E2]'
+            ? 'bg-white dark:bg-[#181A20] border-l-4 border-emerald-600 dark:border-emerald-500 border-y border-r border-[#E2E2E2] dark:border-[#2D323F]' 
+            : 'bg-white dark:bg-[#181A20] border-l-4 border-[#8B0000] dark:border-[#EF4444] border-y border-r border-[#E2E2E2] dark:border-[#2D323F]'
         }`}>
           <div className={`w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0 ${
-            overallPercentage >= targetPercentage ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-[#8B0000]'
+            overallPercentage >= targetPercentage ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' : 'bg-rose-100 dark:bg-rose-950/60 text-[#8B0000] dark:text-[#EF4444]'
           }`}>
             {overallPercentage >= targetPercentage ? (
               <CheckCircle2 className="w-6 h-6" />
@@ -176,10 +176,10 @@ export const AttendanceCalculator: React.FC = () => {
           </div>
 
           <div>
-            <h3 className="font-serif text-base font-bold text-[#1A1A1A]">
+            <h3 className="font-serif text-base font-bold text-[#1A1A1A] dark:text-[#F3F4F6]">
               {overallPercentage >= targetPercentage ? 'Safe Zone • Eligible for AKTU University Admit Card' : 'Shortage Alert • Debarment Risk Under AKTU Ordinance'}
             </h3>
-            <p className="text-xs text-gray-600 font-serif italic mt-0.5 leading-relaxed">
+            <p className="text-xs text-gray-600 dark:text-gray-400 font-serif italic mt-0.5 leading-relaxed">
               {overallMargin.text}
             </p>
           </div>
@@ -187,16 +187,16 @@ export const AttendanceCalculator: React.FC = () => {
       </div>
 
       {/* Subject-wise Ledger */}
-      <div className="bg-white border border-[#E2E2E2] rounded-sm p-4 sm:p-6 shadow-sm space-y-4">
-        <div className="flex items-center justify-between border-b border-black pb-2">
-          <h3 className="font-serif text-base font-bold text-[#1A1A1A] flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-[#8B0000]" />
+      <div className="bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-4 sm:p-6 shadow-sm space-y-4 transition-colors">
+        <div className="flex items-center justify-between border-b border-black dark:border-white/20 pb-2">
+          <h3 className="font-serif text-base font-bold text-[#1A1A1A] dark:text-[#F3F4F6] flex items-center gap-2">
+            <ShieldCheck className="w-4 h-4 text-[#8B0000] dark:text-[#EF4444]" />
             <span>Subject-by-Subject Attendance Tracker</span>
           </h3>
 
           <button
             onClick={handleAdd}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-sm bg-[#8B0000] hover:bg-black text-white text-xs font-bold uppercase tracking-wider shadow-sm cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-sm bg-[#8B0000] dark:bg-[#EF4444] hover:bg-black dark:hover:bg-red-600 text-white text-xs font-bold uppercase tracking-wider shadow-sm cursor-pointer"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>Add Subject</span>
@@ -213,7 +213,9 @@ export const AttendanceCalculator: React.FC = () => {
               <div
                 key={sub.id}
                 className={`p-4 rounded-sm border transition-all ${
-                  isSafe ? 'border-[#E2E2E2] bg-[#FAF9F6]' : 'border-rose-300 bg-rose-50/50'
+                  isSafe 
+                    ? 'border-[#E2E2E2] dark:border-[#2D323F] bg-[#FAF9F6] dark:bg-[#12141A]' 
+                    : 'border-rose-300 dark:border-rose-900/60 bg-rose-50/50 dark:bg-rose-950/20'
                 }`}
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -223,15 +225,15 @@ export const AttendanceCalculator: React.FC = () => {
                       type="text"
                       value={sub.name}
                       onChange={(e) => handleUpdate(sub.id, 'name', e.target.value)}
-                      className="font-serif font-bold text-[#1A1A1A] text-sm bg-transparent focus:outline-none focus:bg-white px-1 py-0.5 rounded-sm border border-transparent focus:border-black w-full"
+                      className="font-serif font-bold text-[#1A1A1A] dark:text-[#F3F4F6] text-sm bg-transparent focus:outline-none focus:bg-white dark:focus:bg-[#20242F] px-1 py-0.5 rounded-sm border border-transparent focus:border-black dark:focus:border-white w-full"
                     />
                     <div className="flex items-center gap-2 text-xs">
                       <span className={`font-mono font-bold px-2 py-0.5 rounded-sm text-[10px] ${
-                        isSafe ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-[#8B0000]'
+                        isSafe ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300' : 'bg-rose-100 dark:bg-rose-950/60 text-[#8B0000] dark:text-[#EF4444]'
                       }`}>
                         {pct.toFixed(1)}%
                       </span>
-                      <span className="text-gray-600 font-serif italic text-xs">{margin.text}</span>
+                      <span className="text-gray-600 dark:text-gray-400 font-serif italic text-xs">{margin.text}</span>
                     </div>
                   </div>
 
@@ -239,24 +241,24 @@ export const AttendanceCalculator: React.FC = () => {
                   <div className="flex items-center gap-3">
                     <div className="flex items-center gap-2 text-xs">
                       <div>
-                        <span className="block text-[9px] font-bold uppercase tracking-wider text-gray-500">Attended:</span>
+                        <span className="block text-[9px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Attended:</span>
                         <input
                           type="number"
                           min="0"
                           value={sub.attended}
                           onChange={(e) => handleUpdate(sub.id, 'attended', Math.max(0, Number(e.target.value)))}
-                          className="w-16 px-2 py-1.5 rounded-sm bg-white border border-[#E2E2E2] text-center font-bold text-[#1A1A1A] text-xs focus:outline-none focus:border-black"
+                          className="w-16 px-2 py-1.5 rounded-sm bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] text-center font-bold text-[#1A1A1A] dark:text-[#F3F4F6] text-xs focus:outline-none focus:border-black dark:focus:border-white"
                         />
                       </div>
-                      <span className="text-gray-400 pt-3">/</span>
+                      <span className="text-gray-400 dark:text-gray-500 pt-3">/</span>
                       <div>
-                        <span className="block text-[9px] font-bold uppercase tracking-wider text-gray-500">Total:</span>
+                        <span className="block text-[9px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Total:</span>
                         <input
                           type="number"
                           min="1"
                           value={sub.total}
                           onChange={(e) => handleUpdate(sub.id, 'total', Math.max(1, Number(e.target.value)))}
-                          className="w-16 px-2 py-1.5 rounded-sm bg-white border border-[#E2E2E2] text-center font-bold text-[#1A1A1A] text-xs focus:outline-none focus:border-black"
+                          className="w-16 px-2 py-1.5 rounded-sm bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] text-center font-bold text-[#1A1A1A] dark:text-[#F3F4F6] text-xs focus:outline-none focus:border-black dark:focus:border-white"
                         />
                       </div>
                     </div>
@@ -264,7 +266,7 @@ export const AttendanceCalculator: React.FC = () => {
                     <button
                       onClick={() => handleRemove(sub.id)}
                       disabled={subjects.length <= 1}
-                      className="p-2 rounded-sm text-gray-400 hover:text-[#8B0000] hover:bg-gray-100 disabled:opacity-20 mt-3 cursor-pointer"
+                      className="p-2 rounded-sm text-gray-400 hover:text-[#8B0000] dark:hover:text-[#EF4444] hover:bg-gray-100 dark:hover:bg-gray-800 disabled:opacity-20 mt-3 cursor-pointer"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>

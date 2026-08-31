@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import { Navbar, NavTab } from './components/Navbar';
 import { SyllabusExplorer } from './components/SyllabusExplorer';
 import { SyllabusCopilot } from './components/SyllabusCopilot';
@@ -45,48 +46,50 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] text-[#1A1A1A] flex flex-col selection:bg-[#8B0000] selection:text-white font-sans antialiased">
-      {/* Top Navbar */}
-      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+    <ThemeProvider>
+      <div className="min-h-screen bg-[#FAF9F6] dark:bg-[#0F1117] text-[#1A1A1A] dark:text-[#F3F4F6] flex flex-col selection:bg-[#8B0000] dark:selection:bg-[#EF4444] selection:text-white font-sans antialiased transition-colors duration-300">
+        {/* Top Navbar */}
+        <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      {/* Main Content Area */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8">
-        {activeTab === 'syllabus' && (
-          <SyllabusExplorer onSelectForCopilot={handleSelectForCopilot} />
-        )}
+        {/* Main Content Area */}
+        <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8">
+          {activeTab === 'syllabus' && (
+            <SyllabusExplorer onSelectForCopilot={handleSelectForCopilot} />
+          )}
 
-        {activeTab === 'copilot' && (
-          <SyllabusCopilot
-            initialSubject={copilotContext.subject}
-            initialUnit={copilotContext.unit}
-            initialTopic={copilotContext.topic}
-            initialMode={copilotContext.mode === 'quiz' ? 'explain' : copilotContext.mode}
-          />
-        )}
+          {activeTab === 'copilot' && (
+            <SyllabusCopilot
+              initialSubject={copilotContext.subject}
+              initialUnit={copilotContext.unit}
+              initialTopic={copilotContext.topic}
+              initialMode={copilotContext.mode === 'quiz' ? 'explain' : copilotContext.mode}
+            />
+          )}
 
-        {activeTab === 'quiz' && (
-          <MockQuiz initialSubject={copilotContext.subject} />
-        )}
+          {activeTab === 'quiz' && (
+            <MockQuiz initialSubject={copilotContext.subject} />
+          )}
 
-        {activeTab === 'calculator' && (
-          <SgpaCalculator />
-        )}
+          {activeTab === 'calculator' && (
+            <SgpaCalculator />
+          )}
 
-        {activeTab === 'attendance' && (
-          <AttendanceCalculator />
-        )}
+          {activeTab === 'attendance' && (
+            <AttendanceCalculator />
+          )}
 
-        {activeTab === 'vault' && (
-          <QuantumResourceVault />
-        )}
+          {activeTab === 'vault' && (
+            <QuantumResourceVault />
+          )}
 
-        {activeTab === 'campus' && (
-          <IecCampusHub />
-        )}
-      </main>
+          {activeTab === 'campus' && (
+            <IecCampusHub />
+          )}
+        </main>
 
-      {/* Footer */}
-      <Footer setActiveTab={setActiveTab} />
-    </div>
+        {/* Footer */}
+        <Footer setActiveTab={setActiveTab} />
+      </div>
+    </ThemeProvider>
   );
 }

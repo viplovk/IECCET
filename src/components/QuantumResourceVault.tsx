@@ -107,17 +107,17 @@ export const QuantumResourceVault: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Top Banner */}
-      <div className="bg-white border border-[#E2E2E2] rounded-sm p-4 sm:p-6 shadow-sm">
+      <div className="bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-4 sm:p-6 shadow-sm transition-colors">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-black text-white text-[10px] uppercase font-bold tracking-widest font-mono mb-1.5">
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-black dark:bg-[#282C38] text-white text-[10px] uppercase font-bold tracking-widest font-mono mb-1.5">
               <FolderGit2 className="w-3.5 h-3.5" />
               <span>AKTU Quantum, PYQ & Video Vault</span>
             </div>
-            <h2 className="font-serif text-2xl sm:text-3xl font-black text-[#1A1A1A] tracking-tight uppercase">
+            <h2 className="font-serif text-2xl sm:text-3xl font-black text-[#1A1A1A] dark:text-[#F3F4F6] tracking-tight uppercase">
               Curated AKTU Study Vault & YouTube Channels
             </h2>
-            <p className="text-xs sm:text-sm text-gray-500 font-serif italic mt-0.5">
+            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-serif italic mt-0.5">
               Top curated learning channels, Quantum exam strategy, and subject-wise reference materials compiled by Viplov.
             </p>
           </div>
@@ -126,7 +126,7 @@ export const QuantumResourceVault: React.FC = () => {
             href="https://aktu.ac.in/syllabus.html"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-sm bg-black hover:bg-gray-800 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-sm bg-black dark:bg-[#282C38] hover:bg-gray-800 dark:hover:bg-gray-700 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-colors cursor-pointer"
           >
             <span>Official AKTU Syllabus</span>
             <ExternalLink className="w-3.5 h-3.5" />
@@ -136,12 +136,12 @@ export const QuantumResourceVault: React.FC = () => {
 
       {/* YouTube Directory */}
       <div className="space-y-4">
-        <div className="flex items-center justify-between border-b border-black pb-2">
-          <h3 className="font-serif text-base font-bold text-[#1A1A1A] flex items-center gap-2">
-            <Tv className="w-4 h-4 text-[#8B0000]" />
+        <div className="flex items-center justify-between border-b border-black dark:border-white/20 pb-2">
+          <h3 className="font-serif text-base font-bold text-[#1A1A1A] dark:text-[#F3F4F6] flex items-center gap-2">
+            <Tv className="w-4 h-4 text-[#8B0000] dark:text-[#EF4444]" />
             <span>Recommended YouTube Channels for AKTU Engineering Subjects</span>
           </h3>
-          <span className="text-[10px] uppercase font-bold tracking-widest text-gray-500 font-mono">
+          <span className="text-[10px] uppercase font-bold tracking-widest text-gray-500 dark:text-gray-400 font-mono">
             {YOUTUBE_CURATION.length} Curated Channels
           </span>
         </div>
@@ -150,31 +150,31 @@ export const QuantumResourceVault: React.FC = () => {
           {YOUTUBE_CURATION.map((ch, idx) => (
             <div
               key={idx}
-              className="p-5 rounded-sm border border-[#E2E2E2] bg-white hover:border-black transition-all space-y-3 shadow-sm"
+              className="p-5 rounded-sm border border-[#E2E2E2] dark:border-[#2D323F] bg-white dark:bg-[#181A20] hover:border-black dark:hover:border-white/50 transition-all space-y-3 shadow-sm"
             >
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <div className="flex items-center gap-2">
-                    <h4 className="font-serif text-lg font-bold text-[#1A1A1A]">{ch.name}</h4>
-                    <span className="px-2 py-0.5 rounded-sm bg-[#FAF9F6] text-[#8B0000] text-[9px] font-bold uppercase tracking-wider border border-[#E2E2E2]">
+                    <h4 className="font-serif text-lg font-bold text-[#1A1A1A] dark:text-[#F3F4F6]">{ch.name}</h4>
+                    <span className="px-2 py-0.5 rounded-sm bg-[#FAF9F6] dark:bg-[#12141A] text-[#8B0000] dark:text-[#EF4444] text-[9px] font-bold uppercase tracking-wider border border-[#E2E2E2] dark:border-[#2D323F]">
                       {ch.badge}
                     </span>
                   </div>
-                  <span className="text-xs text-gray-500 font-serif italic">Instructor: {ch.instructor}</span>
+                  <span className="text-xs text-gray-500 dark:text-gray-400 font-serif italic">Instructor: {ch.instructor}</span>
                 </div>
               </div>
 
-              <p className="text-xs text-gray-700 leading-relaxed font-serif">
+              <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed font-serif">
                 {ch.description}
               </p>
 
-              <div className="space-y-1.5 pt-2 border-t border-[#E2E2E2]">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 block">Covered Subjects:</span>
+              <div className="space-y-1.5 pt-2 border-t border-[#E2E2E2] dark:border-[#2D323F]">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 block">Covered Subjects:</span>
                 <div className="flex flex-wrap gap-1.5">
                   {ch.subjects.map((sub, sIdx) => (
                     <span
                       key={sIdx}
-                      className="px-2 py-0.5 rounded-sm bg-[#FAF9F6] text-[10px] text-gray-800 border border-[#E2E2E2] font-mono font-medium"
+                      className="px-2 py-0.5 rounded-sm bg-[#FAF9F6] dark:bg-[#12141A] text-[10px] text-gray-800 dark:text-gray-200 border border-[#E2E2E2] dark:border-[#2D323F] font-mono font-medium"
                     >
                       {sub}
                     </span>
@@ -187,23 +187,23 @@ export const QuantumResourceVault: React.FC = () => {
       </div>
 
       {/* Quantum Series & Exam Cracking Strategies */}
-      <div className="bg-white border border-[#E2E2E2] rounded-sm p-5 sm:p-6 space-y-4 shadow-sm">
-        <h3 className="font-serif text-base font-bold text-[#1A1A1A] flex items-center gap-2 border-b border-black pb-2">
-          <Flame className="w-4 h-4 text-[#8B0000]" />
+      <div className="bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-5 sm:p-6 space-y-4 shadow-sm transition-colors">
+        <h3 className="font-serif text-base font-bold text-[#1A1A1A] dark:text-[#F3F4F6] flex items-center gap-2 border-b border-black dark:border-white/20 pb-2">
+          <Flame className="w-4 h-4 text-[#8B0000] dark:text-[#EF4444]" />
           <span>AKTU Quantum Series Exam Strategy (Guide to Scoring 9+ SGPA)</span>
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {QUANTUM_STRATEGIES.map((strat, idx) => (
-            <div key={idx} className="p-4 rounded-sm bg-[#FAF9F6] border border-[#E2E2E2] space-y-2">
-              <h4 className="text-xs font-bold text-[#8B0000] uppercase tracking-wider flex items-center gap-1.5">
-                <Award className="w-3.5 h-3.5 text-[#8B0000]" />
+            <div key={idx} className="p-4 rounded-sm bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] space-y-2">
+              <h4 className="text-xs font-bold text-[#8B0000] dark:text-[#EF4444] uppercase tracking-wider flex items-center gap-1.5">
+                <Award className="w-3.5 h-3.5 text-[#8B0000] dark:text-[#EF4444]" />
                 <span>{strat.title}</span>
               </h4>
-              <ul className="space-y-1.5 text-xs text-gray-700 font-serif">
+              <ul className="space-y-1.5 text-xs text-gray-700 dark:text-gray-300 font-serif">
                 {strat.points.map((pt, pIdx) => (
                   <li key={pIdx} className="flex items-start gap-1.5">
-                    <span className="text-[#8B0000] font-bold font-mono">•</span>
+                    <span className="text-[#8B0000] dark:text-[#EF4444] font-bold font-mono">•</span>
                     <span>{pt}</span>
                   </li>
                 ))}

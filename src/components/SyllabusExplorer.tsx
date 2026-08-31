@@ -78,40 +78,40 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
   return (
     <div className="space-y-6">
       {/* Hero Welcome Banner */}
-      <div className="relative overflow-hidden rounded-sm border border-[#E2E2E2] bg-white p-6 sm:p-8 shadow-sm">
+      <div className="relative overflow-hidden rounded-sm border border-[#E2E2E2] dark:border-[#2D323F] bg-white dark:bg-[#181A20] p-6 sm:p-8 shadow-sm transition-colors">
         <div className="relative z-10 max-w-4xl">
           <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="bg-black text-white text-[10px] px-2 py-0.5 uppercase font-bold tracking-widest font-mono">
+            <span className="bg-black dark:bg-[#282C38] text-white text-[10px] px-2 py-0.5 uppercase font-bold tracking-widest font-mono">
               IEC-CET Knowledge Park-I
             </span>
-            <span className="text-xs font-serif italic text-[#8B0000]">
+            <span className="text-xs font-serif italic text-[#8B0000] dark:text-[#EF4444]">
               Official AKTU Curriculum Repository & Exam Pattern
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-serif font-black text-[#1A1A1A] tracking-tight uppercase leading-tight">
+          <h2 className="text-3xl sm:text-4xl font-serif font-black text-[#1A1A1A] dark:text-[#F3F4F6] tracking-tight uppercase leading-tight">
             AKTU B.Tech Syllabus <br className="hidden sm:inline" />
-            <span className="text-gray-400 font-normal italic">& Course Blueprints</span>
+            <span className="text-gray-400 dark:text-gray-500 font-normal italic">& Course Blueprints</span>
           </h2>
 
-          <p className="mt-3 text-sm text-gray-600 leading-relaxed font-sans max-w-3xl">
+          <p className="mt-3 text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-sans max-w-3xl">
             Explore 5-unit official university syllabi, lecture hours, standard textbooks, Quantum references, and 1-click AI Copilot 10-mark exam blueprints across all B.Tech branches.
           </p>
 
           <div className="mt-5 flex flex-wrap items-center gap-3 text-xs">
-            <div className="px-3 py-1.5 rounded-sm bg-[#F5F5F5] border border-[#E2E2E2] text-gray-800 flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px]">
-              <BookOpen className="w-3.5 h-3.5 text-[#8B0000]" />
+            <div className="px-3 py-1.5 rounded-sm bg-[#F5F5F5] dark:bg-[#20242F] border border-[#E2E2E2] dark:border-[#2D323F] text-gray-800 dark:text-gray-200 flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px]">
+              <BookOpen className="w-3.5 h-3.5 text-[#8B0000] dark:text-[#EF4444]" />
               <span>{AKTU_SUBJECTS.length} Subjects Indexed</span>
             </div>
-            <div className="px-3 py-1.5 rounded-sm bg-[#F5F5F5] border-l-2 border-[#8B0000] border-y border-r border-[#E2E2E2] text-gray-800 flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px]">
-              <Flame className="w-3.5 h-3.5 text-[#8B0000]" />
+            <div className="px-3 py-1.5 rounded-sm bg-[#F5F5F5] dark:bg-[#20242F] border-l-2 border-[#8B0000] dark:border-[#EF4444] border-y border-r border-[#E2E2E2] dark:border-[#2D323F] text-gray-800 dark:text-gray-200 flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px]">
+              <Flame className="w-3.5 h-3.5 text-[#8B0000] dark:text-[#EF4444]" />
               <span>Lead: Viplov (2nd Year Batch) & All Semesters</span>
             </div>
             <a
               href="https://aktu.ac.in/syllabus.html"
               target="_blank"
               rel="noreferrer"
-              className="px-3 py-1.5 rounded-sm bg-[#8B0000] hover:bg-black text-white flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px] transition-colors"
+              className="px-3 py-1.5 rounded-sm bg-[#8B0000] hover:bg-black dark:bg-[#EF4444] dark:hover:bg-red-700 text-white flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px] transition-colors"
             >
               <span>AKTU.AC.IN Official</span>
               <ExternalLink className="w-3 h-3" />
@@ -121,7 +121,7 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
       </div>
 
       {/* Filters and Search Bar */}
-      <div className="bg-white border border-[#E2E2E2] rounded-sm p-4 sm:p-5 shadow-sm space-y-4">
+      <div className="bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-4 sm:p-5 shadow-sm space-y-4 transition-colors">
         {/* Search Input */}
         <div className="relative">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -130,12 +130,12 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search topic or code (e.g. 'Dijkstra', 'Paging', 'Deadlock', 'Booth Algorithm', 'Leibnitz', 'KCS301')..."
-            className="w-full pl-10 pr-12 py-2.5 rounded-sm bg-[#FAF9F6] border border-[#E2E2E2] text-sm text-[#1A1A1A] placeholder-gray-400 font-serif italic focus:outline-none focus:border-black"
+            className="w-full pl-10 pr-12 py-2.5 rounded-sm bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] text-sm text-[#1A1A1A] dark:text-[#F3F4F6] placeholder-gray-400 font-serif italic focus:outline-none focus:border-black dark:focus:border-white"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold uppercase tracking-widest text-[#8B0000] hover:text-black cursor-pointer"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold uppercase tracking-widest text-[#8B0000] dark:text-[#EF4444] hover:text-black dark:hover:text-white cursor-pointer"
             >
               Clear
             </button>
@@ -143,10 +143,10 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
         </div>
 
         {/* Year and Branch Selectors */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-[#E2E2E2]">
+        <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-[#E2E2E2] dark:border-[#2D323F]">
           {/* Year Buttons */}
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mr-1">Year:</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mr-1">Year:</span>
             {(['ALL', 1, 2, 3, 4] as const).map((year) => {
               const isSelected = selectedYear === year;
               return (
@@ -155,8 +155,8 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
                   onClick={() => setSelectedYear(year)}
                   className={`px-3 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                     isSelected
-                      ? 'bg-[#8B0000] text-white shadow-sm'
-                      : 'bg-[#F5F5F5] text-gray-700 hover:text-black hover:bg-gray-200 border border-[#E2E2E2]'
+                      ? 'bg-[#8B0000] dark:bg-[#EF4444] text-white shadow-sm'
+                      : 'bg-[#F5F5F5] dark:bg-[#20242F] text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-[#282E3D] border border-[#E2E2E2] dark:border-[#2D323F]'
                   }`}
                 >
                   {year === 'ALL' ? 'All Years' : `${year}${year === 1 ? 'st' : year === 2 ? 'nd' : year === 3 ? 'rd' : 'th'} Year`}
@@ -168,13 +168,13 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
 
           {/* Branch Buttons */}
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mr-1">Branch:</span>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mr-1">Branch:</span>
             <button
               onClick={() => setSelectedBranch('ALL')}
               className={`px-2.5 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                 selectedBranch === 'ALL'
-                  ? 'bg-black text-white'
-                  : 'bg-[#F5F5F5] text-gray-700 hover:text-black border border-[#E2E2E2]'
+                  ? 'bg-black dark:bg-[#282C38] text-white'
+                  : 'bg-[#F5F5F5] dark:bg-[#20242F] text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white border border-[#E2E2E2] dark:border-[#2D323F]'
               }`}
             >
               All Branches
@@ -187,8 +187,8 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
                   onClick={() => setSelectedBranch(b.code)}
                   className={`px-2.5 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                     isSelected
-                      ? 'bg-black text-white'
-                      : 'bg-[#F5F5F5] text-gray-700 hover:text-black border border-[#E2E2E2]'
+                      ? 'bg-black dark:bg-[#282C38] text-white'
+                      : 'bg-[#F5F5F5] dark:bg-[#20242F] text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white border border-[#E2E2E2] dark:border-[#2D323F]'
                   }`}
                 >
                   {b.shortName}
@@ -200,12 +200,12 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
       </div>
 
       {/* Results Count & Active Filter Indicator */}
-      <div className="flex items-center justify-between text-xs text-gray-500 px-1">
+      <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 px-1">
         <span>
-          Showing <strong className="text-[#1A1A1A]">{filteredSubjects.length}</strong> subjects matching filters
+          Showing <strong className="text-[#1A1A1A] dark:text-[#F3F4F6]">{filteredSubjects.length}</strong> subjects matching filters
         </span>
         {searchQuery && (
-          <span className="text-[#8B0000] font-serif italic">
+          <span className="text-[#8B0000] dark:text-[#EF4444] font-serif italic">
             Filtered by query: "{searchQuery}"
           </span>
         )}
@@ -214,10 +214,10 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
       {/* Subjects List */}
       <div className="space-y-4">
         {filteredSubjects.length === 0 ? (
-          <div className="text-center py-12 bg-white border border-[#E2E2E2] rounded-sm p-8">
+          <div className="text-center py-12 bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-8">
             <AlertCircle className="w-10 h-10 text-gray-400 mx-auto mb-3" />
-            <h3 className="text-base font-serif font-bold text-[#1A1A1A]">No subjects found</h3>
-            <p className="text-xs text-gray-500 mt-1 max-w-sm mx-auto">
+            <h3 className="text-base font-serif font-bold text-[#1A1A1A] dark:text-[#F3F4F6]">No subjects found</h3>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 max-w-sm mx-auto">
               Try adjusting your year, branch filter or search keywords to find the AKTU syllabus unit you are looking for.
             </p>
             <button
@@ -226,7 +226,7 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
                 setSelectedBranch('ALL');
                 setSearchQuery('');
               }}
-              className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 rounded-sm bg-[#8B0000] text-white text-xs font-bold uppercase tracking-wider hover:bg-black transition-colors"
+              className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 rounded-sm bg-[#8B0000] dark:bg-[#EF4444] text-white text-xs font-bold uppercase tracking-wider hover:bg-black transition-colors cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Reset Filters</span>
@@ -245,8 +245,8 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
                 key={subject.id}
                 className={`rounded-sm border transition-all duration-200 ${
                   isExpanded
-                    ? 'border-black bg-white shadow-md'
-                    : 'border-[#E2E2E2] bg-white hover:border-gray-400'
+                    ? 'border-black dark:border-gray-500 bg-white dark:bg-[#181A20] shadow-md'
+                    : 'border-[#E2E2E2] dark:border-[#2D323F] bg-white dark:bg-[#181A20] hover:border-gray-400 dark:hover:border-gray-600'
                 }`}
               >
                 {/* Subject Header Card */}
@@ -256,46 +256,46 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
                 >
                   <div className="space-y-1.5 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="px-2 py-0.5 rounded-none bg-black text-white font-mono text-xs font-bold">
+                      <span className="px-2 py-0.5 rounded-none bg-black dark:bg-[#282C38] text-white font-mono text-xs font-bold">
                         {subject.code}
                       </span>
-                      <span className="px-2 py-0.5 rounded-sm bg-[#F5F5F5] border border-[#E2E2E2] text-gray-700 text-xs font-semibold">
+                      <span className="px-2 py-0.5 rounded-sm bg-[#F5F5F5] dark:bg-[#20242F] border border-[#E2E2E2] dark:border-[#2D323F] text-gray-700 dark:text-gray-300 text-xs font-semibold">
                         Year {subject.year} • Sem {subject.semester}
                       </span>
-                      <span className="px-2 py-0.5 rounded-sm bg-[#FAF9F6] border border-[#E2E2E2] text-[#8B0000] text-xs font-bold">
+                      <span className="px-2 py-0.5 rounded-sm bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] text-[#8B0000] dark:text-[#EF4444] text-xs font-bold">
                         {subject.credits} Credits ({subject.ltp})
                       </span>
-                      <span className="text-xs text-gray-500 font-serif italic hidden sm:inline">
+                      <span className="text-xs text-gray-500 dark:text-gray-400 font-serif italic hidden sm:inline">
                         {subject.category}
                       </span>
                     </div>
 
-                    <h3 className="font-serif text-xl font-bold text-[#1A1A1A] tracking-tight flex items-center gap-2">
+                    <h3 className="font-serif text-xl font-bold text-[#1A1A1A] dark:text-[#F3F4F6] tracking-tight flex items-center gap-2">
                       {subject.name}
-                      <span className="text-xs font-sans font-normal text-gray-500">({subject.shortName})</span>
+                      <span className="text-xs font-sans font-normal text-gray-500 dark:text-gray-400">({subject.shortName})</span>
                     </h3>
 
-                    <p className="text-xs text-gray-600 line-clamp-1 max-w-2xl font-sans">
+                    <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-1 max-w-2xl font-sans">
                       {subject.description}
                     </p>
                   </div>
 
                   {/* Right Side: Progress & Toggle */}
-                  <div className="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 pt-3 sm:pt-0 border-[#E2E2E2]">
+                  <div className="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 pt-3 sm:pt-0 border-[#E2E2E2] dark:border-[#2D323F]">
                     <div className="flex items-center gap-3">
                       <div className="text-right">
-                        <div className="text-[11px] font-bold uppercase tracking-wider text-gray-500">
-                          Prep: <span className="text-[#8B0000]">{progressPercent}%</span>
+                        <div className="text-[11px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                          Prep: <span className="text-[#8B0000] dark:text-[#EF4444]">{progressPercent}%</span>
                         </div>
-                        <div className="w-24 h-1.5 bg-[#F1F1F1] rounded-none mt-1 overflow-hidden">
+                        <div className="w-24 h-1.5 bg-[#F1F1F1] dark:bg-[#282C38] rounded-none mt-1 overflow-hidden">
                           <div
-                            className="h-full bg-[#8B0000] transition-all duration-300"
+                            className="h-full bg-[#8B0000] dark:bg-[#EF4444] transition-all duration-300"
                             style={{ width: `${progressPercent}%` }}
                           />
                         </div>
                       </div>
 
-                      <div className="w-8 h-8 rounded-sm bg-[#F5F5F5] border border-[#E2E2E2] flex items-center justify-center text-gray-700">
+                      <div className="w-8 h-8 rounded-sm bg-[#F5F5F5] dark:bg-[#20242F] border border-[#E2E2E2] dark:border-[#2D323F] flex items-center justify-center text-gray-700 dark:text-gray-300">
                         {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                       </div>
                     </div>
@@ -304,23 +304,23 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
 
                 {/* Expanded Subject Units and Resources */}
                 {isExpanded && (
-                  <div className="px-4 sm:px-6 pb-6 pt-2 border-t border-[#E2E2E2] space-y-6 bg-[#FAF9F6]">
+                  <div className="px-4 sm:px-6 pb-6 pt-2 border-t border-[#E2E2E2] dark:border-[#2D323F] space-y-6 bg-[#FAF9F6] dark:bg-[#12141A]">
                     {/* Subject Meta Details Bar */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-4 rounded-sm bg-white border border-[#E2E2E2] text-xs">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-4 rounded-sm bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] text-xs">
                       <div>
-                        <span className="font-bold uppercase tracking-wider text-[10px] text-gray-500 block mb-1">Standard AKTU Textbooks:</span>
-                        <ul className="list-disc list-inside space-y-0.5 text-gray-800">
+                        <span className="font-bold uppercase tracking-wider text-[10px] text-gray-500 dark:text-gray-400 block mb-1">Standard AKTU Textbooks:</span>
+                        <ul className="list-disc list-inside space-y-0.5 text-gray-800 dark:text-gray-200">
                           {subject.textbooks.map((tb, idx) => (
                             <li key={idx} className="truncate">{tb}</li>
                           ))}
                         </ul>
                       </div>
                       <div>
-                        <span className="font-bold uppercase tracking-wider text-[10px] text-gray-500 block mb-1">Quantum Series & Lecture Notes:</span>
-                        <p className="text-[#8B0000] font-serif font-bold italic">{subject.quantumReference}</p>
+                        <span className="font-bold uppercase tracking-wider text-[10px] text-gray-500 dark:text-gray-400 block mb-1">Quantum Series & Lecture Notes:</span>
+                        <p className="text-[#8B0000] dark:text-[#EF4444] font-serif font-bold italic">{subject.quantumReference}</p>
                         <div className="flex flex-wrap gap-1.5 mt-2">
                           {subject.recommendedPlaylists.map((pl, idx) => (
-                            <span key={idx} className="px-2 py-0.5 rounded-sm bg-[#F5F5F5] text-[11px] text-gray-800 border border-[#E2E2E2]">
+                            <span key={idx} className="px-2 py-0.5 rounded-sm bg-[#F5F5F5] dark:bg-[#20242F] text-[11px] text-gray-800 dark:text-gray-200 border border-[#E2E2E2] dark:border-[#2D323F]">
                               📺 {pl.channelName}
                             </span>
                           ))}
@@ -330,12 +330,12 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
 
                     {/* 5 Units Accordion List */}
                     <div className="space-y-3">
-                      <div className="flex items-center justify-between border-b border-black pb-1.5">
-                        <h4 className="text-xs font-bold uppercase tracking-widest text-[#1A1A1A] flex items-center gap-1.5">
-                          <Layers className="w-3.5 h-3.5 text-[#8B0000]" />
+                      <div className="flex items-center justify-between border-b border-black dark:border-white/20 pb-1.5">
+                        <h4 className="text-xs font-bold uppercase tracking-widest text-[#1A1A1A] dark:text-[#F3F4F6] flex items-center gap-1.5">
+                          <Layers className="w-3.5 h-3.5 text-[#8B0000] dark:text-[#EF4444]" />
                           5-Unit Official Syllabus Breakdown
                         </h4>
-                        <span className="text-[10px] uppercase tracking-wider text-gray-500">
+                        <span className="text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">
                           Check box to mark unit done
                         </span>
                       </div>
@@ -350,8 +350,8 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
                             key={unit.unitNumber}
                             className={`rounded-sm border transition-all ${
                               isCompleted
-                                ? 'border-emerald-300 bg-emerald-50/40'
-                                : 'border-[#E2E2E2] bg-white hover:border-gray-400'
+                                ? 'border-emerald-300 dark:border-emerald-800 bg-emerald-50/40 dark:bg-emerald-950/20'
+                                : 'border-[#E2E2E2] dark:border-[#2D323F] bg-white dark:bg-[#181A20] hover:border-gray-400 dark:hover:border-gray-600'
                             }`}
                           >
                             <div className="p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -363,8 +363,8 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
                                   }}
                                   className={`mt-0.5 w-5 h-5 rounded-none flex items-center justify-center flex-shrink-0 transition-colors cursor-pointer ${
                                     isCompleted
-                                      ? 'bg-black text-white font-bold'
-                                      : 'border border-gray-400 hover:border-black text-transparent'
+                                      ? 'bg-black dark:bg-white text-white dark:text-black font-bold'
+                                      : 'border border-gray-400 dark:border-gray-600 hover:border-black dark:hover:border-white text-transparent'
                                   }`}
                                   title="Mark as completed"
                                 >
@@ -376,21 +376,21 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
                                   className="cursor-pointer flex-1 select-none"
                                 >
                                   <div className="flex flex-wrap items-center gap-2">
-                                    <span className="font-bold text-xs text-[#8B0000] uppercase tracking-wider font-mono">
+                                    <span className="font-bold text-xs text-[#8B0000] dark:text-[#EF4444] uppercase tracking-wider font-mono">
                                       Unit {unit.unitNumber}
                                     </span>
-                                    <span className="text-xs text-gray-500 font-serif italic">• {unit.lectureHours} Lectures</span>
+                                    <span className="text-xs text-gray-500 dark:text-gray-400 font-serif italic">• {unit.lectureHours} Lectures</span>
                                     <span className={`text-[9px] px-1.5 py-0.2 uppercase font-bold tracking-wider ${
                                       unit.weightageLevel === 'Very High' 
-                                        ? 'bg-[#8B0000] text-white' 
+                                        ? 'bg-[#8B0000] dark:bg-[#EF4444] text-white' 
                                         : unit.weightageLevel === 'High'
-                                        ? 'bg-black text-white'
-                                        : 'bg-gray-200 text-gray-800'
+                                        ? 'bg-black dark:bg-[#282C38] text-white'
+                                        : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200'
                                     }`}>
                                       {unit.weightageLevel} Weightage
                                     </span>
                                   </div>
-                                  <p className={`font-serif text-base font-bold mt-0.5 ${isCompleted ? 'text-gray-400 line-through' : 'text-[#1A1A1A]'}`}>
+                                  <p className={`font-serif text-base font-bold mt-0.5 ${isCompleted ? 'text-gray-400 dark:text-gray-500 line-through' : 'text-[#1A1A1A] dark:text-[#F3F4F6]'}`}>
                                     {unit.unitTitle}
                                   </p>
                                 </div>
@@ -400,7 +400,7 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
                               <div className="flex items-center gap-2 flex-wrap">
                                 <button
                                   onClick={() => onSelectForCopilot(subject, unit, undefined, 'explain')}
-                                  className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#8B0000] hover:bg-black text-white text-[11px] font-bold uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
+                                  className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#8B0000] hover:bg-black dark:bg-[#EF4444] dark:hover:bg-red-700 text-white text-[11px] font-bold uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
                                   title="Explain this unit with AI"
                                 >
                                   <Sparkles className="w-3 h-3" />
@@ -409,7 +409,7 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
 
                                 <button
                                   onClick={() => onSelectForCopilot(subject, unit, undefined, 'questions')}
-                                  className="inline-flex items-center gap-1 px-3 py-1.5 border border-black hover:bg-black hover:text-white text-[#1A1A1A] text-[11px] font-bold uppercase tracking-wider transition-colors bg-white cursor-pointer"
+                                  className="inline-flex items-center gap-1 px-3 py-1.5 border border-black dark:border-gray-500 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black text-[#1A1A1A] dark:text-[#F3F4F6] text-[11px] font-bold uppercase tracking-wider transition-colors bg-white dark:bg-[#181A20] cursor-pointer"
                                   title="Predict 10-mark questions"
                                 >
                                   <Award className="w-3 h-3" />
@@ -418,7 +418,7 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
 
                                 <button
                                   onClick={() => setExpandedUnitKey(isUnitExpanded ? null : unitKey)}
-                                  className="p-1 rounded-sm bg-[#F5F5F5] border border-[#E2E2E2] text-gray-700 hover:text-black cursor-pointer"
+                                  className="p-1 rounded-sm bg-[#F5F5F5] dark:bg-[#20242F] border border-[#E2E2E2] dark:border-[#2D323F] text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white cursor-pointer"
                                 >
                                   {isUnitExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                                 </button>
@@ -427,18 +427,18 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
 
                             {/* Expanded Unit Topics & PYQs */}
                             {isUnitExpanded && (
-                              <div className="p-4 border-t border-[#E2E2E2] bg-[#FAF9F6] text-xs space-y-4">
+                              <div className="p-4 border-t border-[#E2E2E2] dark:border-[#2D323F] bg-[#FAF9F6] dark:bg-[#12141A] text-xs space-y-4">
                                 <div>
-                                  <span className="font-bold uppercase tracking-wider text-[10px] text-gray-600 block mb-2">
+                                  <span className="font-bold uppercase tracking-wider text-[10px] text-gray-600 dark:text-gray-400 block mb-2">
                                     Prescribed Syllabus Topics:
                                   </span>
                                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pl-2">
                                     {unit.topics.map((top, idx) => (
-                                      <div key={idx} className="flex items-start gap-1.5 text-gray-800">
-                                        <span className="text-[#8B0000] font-bold mt-0.5">•</span>
+                                      <div key={idx} className="flex items-start gap-1.5 text-gray-800 dark:text-gray-200">
+                                        <span className="text-[#8B0000] dark:text-[#EF4444] font-bold mt-0.5">•</span>
                                         <span 
                                           onClick={() => onSelectForCopilot(subject, unit, top, 'explain')}
-                                          className="hover:text-[#8B0000] hover:underline cursor-pointer font-medium"
+                                          className="hover:text-[#8B0000] dark:hover:text-[#EF4444] hover:underline cursor-pointer font-medium"
                                           title="Click to explain this topic with AI"
                                         >
                                           {top}
@@ -448,15 +448,15 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
                                   </div>
                                 </div>
 
-                                <div className="p-3.5 bg-white border-l-4 border-[#8B0000] border-y border-r border-[#E2E2E2]">
-                                  <span className="font-bold uppercase tracking-wider text-[10px] text-[#8B0000] flex items-center gap-1 mb-1.5">
-                                    <Flame className="w-3.5 h-3.5 text-[#8B0000]" />
+                                <div className="p-3.5 bg-white dark:bg-[#181A20] border-l-4 border-[#8B0000] dark:border-[#EF4444] border-y border-r border-[#E2E2E2] dark:border-[#2D323F]">
+                                  <span className="font-bold uppercase tracking-wider text-[10px] text-[#8B0000] dark:text-[#EF4444] flex items-center gap-1 mb-1.5">
+                                    <Flame className="w-3.5 h-3.5 text-[#8B0000] dark:text-[#EF4444]" />
                                     High-Yield Repeated AKTU PYQ Topics (10-Mark Section B & C):
                                   </span>
-                                  <ul className="list-disc list-inside space-y-1 text-gray-800 pl-1 font-serif italic">
+                                  <ul className="list-disc list-inside space-y-1 text-gray-800 dark:text-gray-200 pl-1 font-serif italic">
                                     {unit.importantPyqTopics.map((pyq, idx) => (
                                       <li key={idx}>
-                                        <strong className="font-bold text-[#1A1A1A] not-italic">{pyq}</strong>
+                                        <strong className="font-bold text-[#1A1A1A] dark:text-[#F3F4F6] not-italic">{pyq}</strong>
                                       </li>
                                     ))}
                                   </ul>
