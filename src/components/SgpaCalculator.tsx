@@ -129,8 +129,8 @@ export const SgpaCalculator: React.FC = () => {
           </div>
 
           {/* Subjects Table */}
-          <div className="overflow-x-auto">
-            <table className="w-full text-xs text-left">
+          <div className="overflow-x-auto w-full -mx-4 sm:mx-0 px-4 sm:px-0">
+            <table className="w-full min-w-[520px] text-xs text-left">
               <thead>
                 <tr className="border-b border-[#E2E2E2] dark:border-[#2D323F] text-gray-600 dark:text-gray-400 bg-[#FAF9F6] dark:bg-[#12141A] font-bold uppercase tracking-wider text-[10px]">
                   <th className="py-2.5 px-3">Subject Name & Code</th>

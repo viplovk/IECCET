@@ -77,43 +77,44 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
 
   return (
     <div className="space-y-6">
-      {/* Hero Welcome Banner */}
-      <div className="relative overflow-hidden rounded-sm border border-[#E2E2E2] dark:border-[#2D323F] bg-white dark:bg-[#181A20] p-6 sm:p-8 shadow-sm transition-colors">
-        <div className="relative z-10 max-w-4xl">
-          <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="bg-black dark:bg-[#282C38] text-white text-[10px] px-2 py-0.5 uppercase font-bold tracking-widest font-mono">
-              IEC-CET Knowledge Park-I
-            </span>
-            <span className="text-xs font-serif italic text-[#8B0000] dark:text-[#EF4444]">
-              Official AKTU Curriculum Repository & Exam Pattern
-            </span>
+      {/* Hero Welcome Banner (Optimized Screen-Ratio Header) */}
+      <div className="relative overflow-hidden rounded-sm border border-[#E2E2E2] dark:border-[#2D323F] bg-white dark:bg-[#181A20] p-4 sm:p-5 shadow-sm transition-colors">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="space-y-1 max-w-3xl">
+            <div className="flex flex-wrap items-center gap-2 mb-1">
+              <span className="bg-black dark:bg-[#282C38] text-white text-[9px] px-1.5 py-0.2 uppercase font-bold tracking-widest font-mono">
+                IEC-CET • KNOWLEDGE PARK-I
+              </span>
+              <span className="text-[11px] font-serif italic text-[#8B0000] dark:text-[#EF4444]">
+                Official AKTU Curriculum Repository & Exam Blueprint
+              </span>
+            </div>
+
+            <h2 className="text-xl sm:text-2xl font-serif font-black text-[#1A1A1A] dark:text-[#F3F4F6] tracking-tight uppercase leading-snug">
+              AKTU B.Tech Syllabus & Course Blueprints
+            </h2>
+
+            <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed font-sans">
+              Explore 5-unit official university syllabi, lecture hours, standard textbooks, Quantum references, and 1-click AI Copilot 10-mark exam blueprints across all B.Tech branches.
+            </p>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-serif font-black text-[#1A1A1A] dark:text-[#F3F4F6] tracking-tight uppercase leading-tight">
-            AKTU B.Tech Syllabus <br className="hidden sm:inline" />
-            <span className="text-gray-400 dark:text-gray-500 font-normal italic">& Course Blueprints</span>
-          </h2>
-
-          <p className="mt-3 text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-sans max-w-3xl">
-            Explore 5-unit official university syllabi, lecture hours, standard textbooks, Quantum references, and 1-click AI Copilot 10-mark exam blueprints across all B.Tech branches.
-          </p>
-
-          <div className="mt-5 flex flex-wrap items-center gap-3 text-xs">
-            <div className="px-3 py-1.5 rounded-sm bg-[#F5F5F5] dark:bg-[#20242F] border border-[#E2E2E2] dark:border-[#2D323F] text-gray-800 dark:text-gray-200 flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px]">
-              <BookOpen className="w-3.5 h-3.5 text-[#8B0000] dark:text-[#EF4444]" />
+          <div className="flex flex-wrap md:flex-col items-start md:items-end gap-1.5 flex-shrink-0">
+            <div className="px-2.5 py-1 rounded-sm bg-[#F5F5F5] dark:bg-[#20242F] border border-[#E2E2E2] dark:border-[#2D323F] text-gray-800 dark:text-gray-200 flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px]">
+              <BookOpen className="w-3 h-3 text-[#8B0000] dark:text-[#EF4444]" />
               <span>{AKTU_SUBJECTS.length} Subjects Indexed</span>
             </div>
-            <div className="px-3 py-1.5 rounded-sm bg-[#F5F5F5] dark:bg-[#20242F] border-l-2 border-[#8B0000] dark:border-[#EF4444] border-y border-r border-[#E2E2E2] dark:border-[#2D323F] text-gray-800 dark:text-gray-200 flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px]">
-              <Flame className="w-3.5 h-3.5 text-[#8B0000] dark:text-[#EF4444]" />
-              <span>Lead: Viplov (2nd Year Batch) & All Semesters</span>
+            <div className="px-2.5 py-1 rounded-sm bg-[#F5F5F5] dark:bg-[#20242F] border-l-2 border-[#8B0000] dark:border-[#EF4444] border-y border-r border-[#E2E2E2] dark:border-[#2D323F] text-gray-800 dark:text-gray-200 flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px]">
+              <Flame className="w-3 h-3 text-[#8B0000] dark:text-[#EF4444]" />
+              <span>Viplov (2nd Year Batch)</span>
             </div>
             <a
               href="https://aktu.ac.in/syllabus.html"
               target="_blank"
               rel="noreferrer"
-              className="px-3 py-1.5 rounded-sm bg-[#8B0000] hover:bg-black dark:bg-[#EF4444] dark:hover:bg-red-700 text-white flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px] transition-colors"
+              className="px-2.5 py-1 rounded-sm bg-[#8B0000] hover:bg-black dark:bg-[#EF4444] dark:hover:bg-red-700 text-white flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px] transition-colors"
             >
-              <span>AKTU.AC.IN Official</span>
+              <span>AKTU.AC.IN</span>
               <ExternalLink className="w-3 h-3" />
             </a>
           </div>
@@ -121,7 +122,7 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
       </div>
 
       {/* Filters and Search Bar */}
-      <div className="bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-4 sm:p-5 shadow-sm space-y-4 transition-colors">
+      <div className="bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-3.5 sm:p-4 shadow-sm space-y-3 transition-colors">
         {/* Search Input */}
         <div className="relative">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -130,7 +131,7 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search topic or code (e.g. 'Dijkstra', 'Paging', 'Deadlock', 'Booth Algorithm', 'Leibnitz', 'KCS301')..."
-            className="w-full pl-10 pr-12 py-2.5 rounded-sm bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] text-sm text-[#1A1A1A] dark:text-[#F3F4F6] placeholder-gray-400 font-serif italic focus:outline-none focus:border-black dark:focus:border-white"
+            className="w-full pl-10 pr-12 py-2 rounded-sm bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] text-xs sm:text-sm text-[#1A1A1A] dark:text-[#F3F4F6] placeholder-gray-400 font-serif italic focus:outline-none focus:border-black dark:focus:border-white"
           />
           {searchQuery && (
             <button
@@ -143,7 +144,7 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
         </div>
 
         {/* Year and Branch Selectors */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-[#E2E2E2] dark:border-[#2D323F]">
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-2.5 border-t border-[#E2E2E2] dark:border-[#2D323F]">
           {/* Year Buttons */}
           <div className="flex items-center gap-1.5 flex-wrap">
             <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mr-1">Year:</span>
@@ -153,7 +154,7 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
                 <button
                   key={year}
                   onClick={() => setSelectedYear(year)}
-                  className={`px-3 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  className={`px-2.5 py-1 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-[#8B0000] dark:bg-[#EF4444] text-white shadow-sm'
                       : 'bg-[#F5F5F5] dark:bg-[#20242F] text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-200 dark:hover:bg-[#282E3D] border border-[#E2E2E2] dark:border-[#2D323F]'
@@ -171,7 +172,7 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
             <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mr-1">Branch:</span>
             <button
               onClick={() => setSelectedBranch('ALL')}
-              className={`px-2.5 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+              className={`px-2 py-1 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                 selectedBranch === 'ALL'
                   ? 'bg-black dark:bg-[#282C38] text-white'
                   : 'bg-[#F5F5F5] dark:bg-[#20242F] text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white border border-[#E2E2E2] dark:border-[#2D323F]'
@@ -185,7 +186,7 @@ export const SyllabusExplorer: React.FC<SyllabusExplorerProps> = ({ onSelectForC
                 <button
                   key={b.code}
                   onClick={() => setSelectedBranch(b.code)}
-                  className={`px-2.5 py-1.5 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  className={`px-2 py-1 rounded-sm text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-black dark:bg-[#282C38] text-white'
                       : 'bg-[#F5F5F5] dark:bg-[#20242F] text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white border border-[#E2E2E2] dark:border-[#2D323F]'

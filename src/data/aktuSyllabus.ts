@@ -1,4 +1,5 @@
 import { BranchInfo, Subject } from '../types';
+import { ADDITIONAL_AKTU_SUBJECTS } from './moreSubjects';
 
 export const BRANCHES_DATA: BranchInfo[] = [
   {
@@ -1663,7 +1664,8 @@ export const AKTU_SUBJECTS: Subject[] = [
         topicCoverage: 'Uninformed & Informed search techniques, Logic resolution'
       }
     ]
-  }
+  },
+  ...ADDITIONAL_AKTU_SUBJECTS
 ];
 
 export const AKTU_GRADING_SCALE = [

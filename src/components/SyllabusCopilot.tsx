@@ -397,28 +397,28 @@ export const SyllabusCopilot: React.FC<SyllabusCopilotProps> = ({
 
   return (
     <div className="space-y-6">
-      {/* Top Banner */}
-      <div className="bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-4 sm:p-6 shadow-sm transition-colors">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+      {/* Top Banner (Screen-Ratio Optimized) */}
+      <div className="bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-3.5 sm:p-4.5 shadow-sm transition-colors">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-black dark:bg-[#282C38] text-white text-[10px] uppercase font-bold tracking-widest font-mono mb-2">
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-black dark:bg-[#282C38] text-white text-[9px] uppercase font-bold tracking-widest font-mono mb-1.5">
               <Sparkles className="w-3 h-3 text-amber-300" />
               <span>Campus & Syllabus Copilot</span>
             </div>
-            <h2 className="font-serif text-2xl sm:text-3xl font-black text-[#1A1A1A] dark:text-[#F3F4F6] tracking-tight uppercase">
+            <h2 className="font-serif text-xl sm:text-2xl font-black text-[#1A1A1A] dark:text-[#F3F4F6] tracking-tight uppercase">
               Intelligent Academic Assistant
             </h2>
-            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-serif italic mt-0.5">
+            <p className="text-xs text-gray-500 dark:text-gray-400 font-serif italic mt-0.5">
               Navigate course curriculums, master complex syllabus topics, extract practical summaries from uploaded lecture notes, and crack university exams.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-[10px] px-3 py-1 bg-[#F5F5F5] dark:bg-[#20242F] border-l-4 border-[#8B0000] dark:border-[#EF4444] border-y border-r border-[#E2E2E2] dark:border-[#2D323F] text-gray-800 dark:text-gray-200 font-bold uppercase tracking-wider">
-              IEC-CET Official Code: 090
+          <div className="flex flex-wrap items-center gap-2 flex-shrink-0">
+            <span className="text-[10px] px-2.5 py-1 bg-[#F5F5F5] dark:bg-[#20242F] border-l-4 border-[#8B0000] dark:border-[#EF4444] border-y border-r border-[#E2E2E2] dark:border-[#2D323F] text-gray-800 dark:text-gray-200 font-bold uppercase tracking-wider">
+              IEC-CET Code: 090
             </span>
-            <span className="text-[10px] px-2.5 py-1 bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] text-gray-600 dark:text-gray-400 font-mono">
-              Lead Architect: Viplov (2nd Year)
+            <span className="text-[10px] px-2 py-1 bg-[#FAF9F6] dark:bg-[#12141A] border border-[#E2E2E2] dark:border-[#2D323F] text-gray-600 dark:text-gray-400 font-mono">
+              Viplov (2nd Year)
             </span>
           </div>
         </div>

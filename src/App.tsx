@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
+import { AuthProvider } from './context/AuthContext';
 import { Navbar, NavTab } from './components/Navbar';
+import { StudentLoginModal } from './components/StudentLoginModal';
 import { SyllabusExplorer } from './components/SyllabusExplorer';
 import { SyllabusCopilot } from './components/SyllabusCopilot';
 import { MockQuiz } from './components/MockQuiz';
@@ -47,49 +49,54 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-[#FAF9F6] dark:bg-[#0F1117] text-[#1A1A1A] dark:text-[#F3F4F6] flex flex-col selection:bg-[#8B0000] dark:selection:bg-[#EF4444] selection:text-white font-sans antialiased transition-colors duration-300">
-        {/* Top Navbar */}
-        <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+      <AuthProvider>
+        <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#FAF9F6] dark:bg-[#0F1117] text-[#1A1A1A] dark:text-[#F3F4F6] flex flex-col selection:bg-[#8B0000] dark:selection:bg-[#EF4444] selection:text-white font-sans antialiased transition-colors duration-300">
+          {/* Top Navbar with zero collision */}
+          <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-        {/* Main Content Area */}
-        <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8">
-          {activeTab === 'syllabus' && (
-            <SyllabusExplorer onSelectForCopilot={handleSelectForCopilot} />
-          )}
+          {/* Student Login & Profile Modal */}
+          <StudentLoginModal />
 
-          {activeTab === 'copilot' && (
-            <SyllabusCopilot
-              initialSubject={copilotContext.subject}
-              initialUnit={copilotContext.unit}
-              initialTopic={copilotContext.topic}
-              initialMode={copilotContext.mode === 'quiz' ? 'explain' : copilotContext.mode}
-            />
-          )}
+          {/* Main Content Area */}
+          <main className="flex-1 w-full max-w-[1360px] 2xl:max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 min-w-0">
+            {activeTab === 'syllabus' && (
+              <SyllabusExplorer onSelectForCopilot={handleSelectForCopilot} />
+            )}
 
-          {activeTab === 'quiz' && (
-            <MockQuiz initialSubject={copilotContext.subject} />
-          )}
+            {activeTab === 'copilot' && (
+              <SyllabusCopilot
+                initialSubject={copilotContext.subject}
+                initialUnit={copilotContext.unit}
+                initialTopic={copilotContext.topic}
+                initialMode={copilotContext.mode === 'quiz' ? 'explain' : copilotContext.mode}
+              />
+            )}
 
-          {activeTab === 'calculator' && (
-            <SgpaCalculator />
-          )}
+            {activeTab === 'quiz' && (
+              <MockQuiz initialSubject={copilotContext.subject} />
+            )}
 
-          {activeTab === 'attendance' && (
-            <AttendanceCalculator />
-          )}
+            {activeTab === 'calculator' && (
+              <SgpaCalculator />
+            )}
 
-          {activeTab === 'vault' && (
-            <QuantumResourceVault />
-          )}
+            {activeTab === 'attendance' && (
+              <AttendanceCalculator />
+            )}
 
-          {activeTab === 'campus' && (
-            <IecCampusHub />
-          )}
-        </main>
+            {activeTab === 'vault' && (
+              <QuantumResourceVault />
+            )}
 
-        {/* Footer */}
-        <Footer setActiveTab={setActiveTab} />
-      </div>
+            {activeTab === 'campus' && (
+              <IecCampusHub />
+            )}
+          </main>
+
+          {/* Footer */}
+          <Footer setActiveTab={setActiveTab} />
+        </div>
+      </AuthProvider>
     </ThemeProvider>
   );
 }

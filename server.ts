@@ -4,6 +4,14 @@ import { fileURLToPath } from 'url';
 import { createServer as createViteServer } from 'vite';
 import dotenv from 'dotenv';
 import { GoogleGenAI, Type } from '@google/genai';
+import { 
+  getSqlDatabase, 
+  authenticateStudent, 
+  registerStudent, 
+  getAllStudents, 
+  getStudentByRoll, 
+  persistDatabase 
+} from './src/server/db.ts';
 
 dotenv.config();
 
@@ -57,7 +65,139 @@ app.get('/api/health', (req, res) => {
     app: 'Campus & Syllabus Copilot',
     college: 'IEC College of Engineering & Technology (AKTU Code: 090)',
     creator: 'Viplov (2nd Year B.Tech)',
+    database: 'SQLite (sql.js WASM Relational Database)',
   });
+});
+
+// ======================== SQL STUDENT AUTHENTICATION ROUTES ========================
+
+// Login endpoint: Authenticate with Roll Number & Date of Birth (DDMMYYYY)
+app.post('/api/auth/login', async (req, res) => {
+  try {
+    const { rollNumber, dob } = req.body;
+    if (!rollNumber || !dob) {
+      return res.status(400).json({
+        success: false,
+        error: 'Roll Number (Username) and Date of Birth (Password in DDMMYYYY) are required.',
+      });
+    }
+
+    const userAgent = req.headers['user-agent'] || 'Browser';
+    const authResult = await authenticateStudent(rollNumber, dob, userAgent);
+
+    if (!authResult.success) {
+      return res.status(401).json(authResult);
+    }
+
+    res.json({
+      success: true,
+      message: `Welcome back, ${authResult.student?.name}!`,
+      student: authResult.student,
+    });
+  } catch (error: any) {
+    console.error('Error during student login:', error);
+    res.status(500).json({
+      success: false,
+      error: error.message || 'Internal server error during authentication.',
+    });
+  }
+});
+
+// Register / Enroll new student into SQL database
+app.post('/api/auth/register', async (req, res) => {
+  try {
+    const { roll_number, dob, name, branch, year, semester, section, email, phone } = req.body;
+
+    if (!roll_number || !dob || !name || !branch) {
+      return res.status(400).json({
+        success: false,
+        error: 'Roll Number, Date of Birth (DDMMYYYY), Full Name, and Branch are required.',
+      });
+    }
+
+    const registerResult = await registerStudent({
+      roll_number,
+      dob,
+      name,
+      branch,
+      year: Number(year) || 2,
+      semester: Number(semester) || 3,
+      section: section || 'A',
+      email: email || '',
+      phone: phone || '',
+    });
+
+    if (!registerResult.success) {
+      return res.status(400).json(registerResult);
+    }
+
+    res.json({
+      success: true,
+      message: `Successfully enrolled ${registerResult.student?.name} in SQL database!`,
+      student: registerResult.student,
+    });
+  } catch (error: any) {
+    console.error('Error during student registration:', error);
+    res.status(500).json({
+      success: false,
+      error: error.message || 'Internal server error during student registration.',
+    });
+  }
+});
+
+// List enrolled students from SQL database (for demo quick selection)
+app.get('/api/auth/students', async (req, res) => {
+  try {
+    const students = await getAllStudents();
+    res.json({
+      success: true,
+      count: students.length,
+      students,
+    });
+  } catch (error: any) {
+    console.error('Error fetching students:', error);
+    res.status(500).json({
+      success: false,
+      error: error.message || 'Failed to fetch student directory.',
+    });
+  }
+});
+
+// Get individual student profile from SQL database
+app.get('/api/auth/student/:rollNumber', async (req, res) => {
+  try {
+    const student = await getStudentByRoll(req.params.rollNumber);
+    if (!student) {
+      return res.status(404).json({ success: false, error: 'Student not found in SQL database.' });
+    }
+    // Omit DOB from profile response
+    const { dob, ...safeProfile } = student;
+    res.json({ success: true, student: safeProfile });
+  } catch (error: any) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// Update student attendance or target in SQL database
+app.post('/api/auth/update-attendance', async (req, res) => {
+  try {
+    const { rollNumber, attendancePercentage, targetAttendance } = req.body;
+    if (!rollNumber) {
+      return res.status(400).json({ success: false, error: 'Roll number required.' });
+    }
+
+    const db = await getSqlDatabase();
+    db.run(
+      'UPDATE students SET attendance_percentage = ?, target_attendance = ? WHERE UPPER(roll_number) = ?',
+      [Number(attendancePercentage) || 75.0, Number(targetAttendance) || 75.0, rollNumber.trim().toUpperCase()]
+    );
+    persistDatabase();
+
+    const updated = await getStudentByRoll(rollNumber);
+    res.json({ success: true, student: updated });
+  } catch (error: any) {
+    res.status(500).json({ success: false, error: error.message });
+  }
 });
 
 // Unified Command Execution Endpoint (/summarize, /quiz, /studyplan, /explain, or general query)

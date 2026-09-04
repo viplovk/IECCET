@@ -17,8 +17,8 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ setActiveTab }) => {
   return (
-    <footer className="mt-16 border-t border-[#E2E2E2] dark:border-[#2D323F] bg-white dark:bg-[#181A20] text-[#1A1A1A] dark:text-[#F3F4F6] text-xs transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 space-y-8">
+    <footer className="mt-12 border-t border-[#E2E2E2] dark:border-[#2D323F] bg-white dark:bg-[#181A20] text-[#1A1A1A] dark:text-[#F3F4F6] text-xs transition-colors duration-300">
+      <div className="max-w-[1360px] 2xl:max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8 py-8 sm:py-10 space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Col 1: About & College Info */}
           <div className="md:col-span-2 space-y-3">

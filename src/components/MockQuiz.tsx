@@ -109,17 +109,17 @@ export const MockQuiz: React.FC<MockQuizProps> = ({ initialSubject }) => {
   return (
     <div className="space-y-6">
       {/* Quiz Config Banner */}
-      <div className="bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-4 sm:p-6 shadow-sm space-y-4 transition-colors">
+      <div className="bg-white dark:bg-[#181A20] border border-[#E2E2E2] dark:border-[#2D323F] rounded-sm p-3.5 sm:p-4.5 shadow-sm space-y-3.5 transition-colors">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-black dark:bg-[#282C38] text-white text-[10px] uppercase font-bold tracking-widest font-mono mb-1.5">
-              <CheckSquare className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-black dark:bg-[#282C38] text-white text-[9px] uppercase font-bold tracking-widest font-mono mb-1">
+              <CheckSquare className="w-3 h-3" />
               <span>AKTU University Exam Mock Test & Lab Viva Prep</span>
             </div>
-            <h2 className="font-serif text-2xl sm:text-3xl font-black text-[#1A1A1A] dark:text-[#F3F4F6] tracking-tight uppercase">
+            <h2 className="font-serif text-xl sm:text-2xl font-black text-[#1A1A1A] dark:text-[#F3F4F6] tracking-tight uppercase">
               Interactive AKTU Knowledge Check
             </h2>
-            <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-serif italic mt-0.5">
+            <p className="text-xs text-gray-500 dark:text-gray-400 font-serif italic mt-0.5">
               Test your grasp of definitions, complexity classes, formulas, and syllabus concepts with instant grading.
             </p>
           </div>
@@ -127,7 +127,7 @@ export const MockQuiz: React.FC<MockQuizProps> = ({ initialSubject }) => {
           <button
             onClick={handleGenerateQuiz}
             disabled={isLoading}
-            className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-sm bg-[#8B0000] dark:bg-[#EF4444] hover:bg-black dark:hover:bg-red-600 disabled:opacity-50 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all whitespace-nowrap cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-sm bg-[#8B0000] dark:bg-[#EF4444] hover:bg-black dark:hover:bg-red-600 disabled:opacity-50 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all whitespace-nowrap cursor-pointer flex-shrink-0"
           >
             {isLoading ? (
               <>
