@@ -10,6 +10,7 @@ import {
   registerStudent, 
   getAllStudents, 
   getStudentByRoll, 
+  updateStudentProfile,
   persistDatabase 
 } from './src/server/db.ts';
 
@@ -196,6 +197,30 @@ app.post('/api/auth/update-attendance', async (req, res) => {
     const updated = await getStudentByRoll(rollNumber);
     res.json({ success: true, student: updated });
   } catch (error: any) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// Update student profile details in SQL database
+app.post('/api/auth/update-profile', async (req, res) => {
+  try {
+    const { rollNumber, ...updates } = req.body;
+    if (!rollNumber) {
+      return res.status(400).json({ success: false, error: 'Roll number is required.' });
+    }
+
+    const result = await updateStudentProfile(rollNumber, updates);
+    if (!result.success) {
+      return res.status(400).json(result);
+    }
+
+    res.json({
+      success: true,
+      message: 'Student profile successfully updated in SQL database!',
+      student: result.student,
+    });
+  } catch (error: any) {
+    console.error('Error updating student profile:', error);
     res.status(500).json({ success: false, error: error.message });
   }
 });

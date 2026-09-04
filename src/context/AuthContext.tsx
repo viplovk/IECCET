@@ -38,6 +38,7 @@ interface AuthContextType {
   }) => Promise<{ success: boolean; error?: string }>;
   logout: () => void;
   updateAttendance: (attendance: number, target: number) => Promise<void>;
+  updateProfile: (updatedData: Partial<StudentUser>) => Promise<{ success: boolean; error?: string }>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -156,6 +157,32 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }
   };
 
+  const updateProfile = async (updatedData: Partial<StudentUser>): Promise<{ success: boolean; error?: string }> => {
+    if (!user) return { success: false, error: 'No student is currently signed in.' };
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/auth/update-profile', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          rollNumber: user.roll_number,
+          ...updatedData,
+        }),
+      });
+      const data = await response.json();
+      if (response.ok && data.success && data.student) {
+        setUser(data.student);
+        return { success: true };
+      } else {
+        return { success: false, error: data.error || 'Failed to update student profile.' };
+      }
+    } catch (err: any) {
+      return { success: false, error: err.message || 'Connection error while saving profile.' };
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -169,6 +196,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         register,
         logout,
         updateAttendance,
+        updateProfile,
       }}
     >
       {children}

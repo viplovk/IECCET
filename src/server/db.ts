@@ -360,3 +360,51 @@ export async function getAllStudents(): Promise<Array<Omit<StudentRecord, 'dob'>
     return obj;
   });
 }
+
+/**
+ * Update an existing student's profile data in the SQL database
+ */
+export async function updateStudentProfile(
+  rollNumber: string,
+  updates: {
+    name?: string;
+    branch?: string;
+    year?: number;
+    semester?: number;
+    section?: string;
+    email?: string;
+    phone?: string;
+    attendance_percentage?: number;
+    target_attendance?: number;
+    sgpa_current?: number;
+  }
+): Promise<{ success: boolean; student?: StudentRecord; error?: string }> {
+  const db = await getSqlDatabase();
+  const cleanRoll = rollNumber.trim().toUpperCase();
+  const existing = await getStudentByRoll(cleanRoll);
+  if (!existing) {
+    return { success: false, error: `Student with Roll Number ${cleanRoll} not found in SQL database.` };
+  }
+
+  const newName = updates.name !== undefined ? updates.name.trim() : existing.name;
+  const newBranch = updates.branch !== undefined ? updates.branch.trim() : existing.branch;
+  const newYear = updates.year !== undefined ? Number(updates.year) : existing.year;
+  const newSemester = updates.semester !== undefined ? Number(updates.semester) : existing.semester;
+  const newSection = updates.section !== undefined ? updates.section.trim() : existing.section;
+  const newEmail = updates.email !== undefined ? updates.email.trim() : existing.email;
+  const newPhone = updates.phone !== undefined ? updates.phone.trim() : existing.phone;
+  const newAtt = updates.attendance_percentage !== undefined ? Number(updates.attendance_percentage) : existing.attendance_percentage;
+  const newTarget = updates.target_attendance !== undefined ? Number(updates.target_attendance) : existing.target_attendance;
+  const newSgpa = updates.sgpa_current !== undefined ? Number(updates.sgpa_current) : existing.sgpa_current;
+
+  db.run(
+    `UPDATE students 
+     SET name = ?, branch = ?, year = ?, semester = ?, section = ?, email = ?, phone = ?, attendance_percentage = ?, target_attendance = ?, sgpa_current = ?
+     WHERE UPPER(roll_number) = ?`,
+    [newName, newBranch, newYear, newSemester, newSection, newEmail, newPhone, newAtt, newTarget, newSgpa, cleanRoll]
+  );
+  persistDatabase();
+
+  const updated = await getStudentByRoll(cleanRoll);
+  return { success: true, student: updated || undefined };
+}
